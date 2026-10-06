@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #0e0508;
+  --foreground: #f9f2f7;
+  --muted: #b8a8b6;
+  --card: #160a0e;
+  --accent: #ff1b56;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(113, 18, 50, 0.2), transparent 34rem),
+    var(--background);
+  color: var(--foreground);
+  font-family: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(255, 27, 86, 0.38);
+  color: white;
+}
+
+.hero-orbit {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(92vw, 74rem);
+  aspect-ratio: 1.5;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 5rem rgba(255, 255, 255, 0.018),
+    0 0 0 10rem rgba(255, 255, 255, 0.012);
+  mask-image: linear-gradient(to bottom, transparent, black 28%, black 72%, transparent);
+}
+
+.hero-orbit::before,
+.hero-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 26px rgba(255, 27, 86, 0.75);
+}
+
+.hero-orbit::before {
+  left: 11%;
+  top: 27%;
+  width: 0.36rem;
+  height: 0.36rem;
+}
+
+.hero-orbit::after {
+  right: 8%;
+  bottom: 28%;
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 999px;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.hero-glow-left {
+  left: -13rem;
+  top: 34%;
+  background: rgba(255, 27, 86, 0.15);
+}
+
+.hero-glow-right {
+  right: -16rem;
+  top: 10%;
+  background: rgba(184, 41, 104, 0.12);
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -25% -45% auto;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 999px;
+  background: rgba(255, 27, 86, 0.08);
+  filter: blur(50px);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.about-panel {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025), 0 30px 90px rgba(0, 0, 0, 0.18);
+}
+
+.contact-panel {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 27, 86, 0.2), transparent 50%),
+    linear-gradient(145deg, rgba(28, 10, 17, 0.96), rgba(18, 7, 11, 0.98));
+}
+
+.contact-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+@media (max-width: 640px) {
+  .hero-orbit {
+    top: 42%;
+    width: 56rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
