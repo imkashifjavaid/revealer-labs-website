@@ -1,6 +1,6 @@
 # Revealer Labs website
 
-A responsive agency website for Revealer Labs, covering services, portfolio concepts, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
+A responsive agency website for Revealer Labs, covering services, portfolio concepts, detailed concept case studies, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
 
 ## Local setup
 
@@ -41,11 +41,12 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 
 ## Editing content
 
-- Navigation, services, portfolio projects, industry showcases and FAQ groups live in `lib/site-content.ts`.
+- Navigation, services, portfolio projects, case studies, industry showcases and FAQ groups live in `lib/site-content.ts`.
 - Section copy lives in the corresponding files under `components/`.
 - Semantic light/dark theme tokens, reduced-motion rules and global visual treatments live in `app/globals.css`.
 - Page metadata is defined in `app/layout.tsx`.
 - Local concept artwork lives in `public/previews/`. Replace a project’s `previewPath` when owned imagery is ready.
+- Case-study artwork lives in `public/case-studies/`. Replace a study’s `heroPath` and matching portfolio `previewPath` when approved media is ready.
 
 ## Themes, motion and FAQ
 
@@ -60,5 +61,15 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 The current portfolio entries are clearly labeled concept demos, not client work. Each project record includes its category, summary, proposed feature direction, technology tags, preview path, demo status and an optional `externalUrl` field. External links render only when a real URL is provided.
 
 Industry showcases also include an optional `videoPath`. Until owned video is available, the local SVG preview is shown.
+
+## Concept case studies
+
+Three portfolio entries link to dedicated pages under `/work/[slug]`:
+
+- AI work-order automation
+- Orbital Courier mobile-game prototype
+- Launch Signal motion and creator-style campaign
+
+The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Each entry separates original concept material from proposed implementation, tools, production and outcomes. The campaign board is an original generated asset created for this website; it does not represent a client, working product or live campaign.
 
 Real contact delivery remains inactive until the four production environment values above are configured. No contact address is displayed publicly.

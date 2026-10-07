@@ -97,9 +97,38 @@ Remaining verification:
 - The legal drafts require owner input and appropriate legal review before publication
 - The in-memory limiter is best-effort per application instance; a shared persistent limiter may be appropriate after the final hosting platform is selected
 
+## Milestone 5 — concept case studies
+
+Completed:
+
+- Three dedicated, statically generated concept case-study routes
+- AI work-order automation, mobile-game prototype and brand motion campaign narratives
+- Clear problem, proposed solution, role, proposed tools, concept deliverables and visual direction for each study
+- Prominent Concept Demo and honest-scope language with explicit real-versus-proposed summaries
+- Data-driven case-study content and replaceable local media paths in `lib/site-content.ts`
+- Existing Flowline Ops and Orbital Courier cards connected to their case studies
+- New Brand & Motion portfolio category and Launch Signal campaign concept
+- Case-study links in both portfolio cards and accessible project dialogs
+- Original campaign-board artwork with no client identity, claim, testimonial or demo link
+- Scoped black and dark-green case-study palette with a readable light-theme equivalent
+
+Verification completed:
+
+- Portfolio filters still reset correctly and Show More advances from 6 to 9 to all 10 projects
+- All three case-study routes load with route-specific metadata and no horizontal overflow
+- Dark/light theme switching, responsive navigation, FAQ expansion, dialog behavior and contact validation remain functional
+- Local case-study images load without broken assets and browser checks show no console errors
+- `npm run lint`, `npm run typecheck` and `npm run build`
+
+Current limitations:
+
+- All three studies are concept demonstrations, not completed client work
+- Work-order integrations, the Unity build and campaign production/media results remain proposed
+- Case-study media should be replaced with approved screenshots and owned video when real project material is available
+
 ## Next milestones
 
-1. Replace concept media with approved portfolio work and owned video
+1. Replace concept media with approved portfolio work, screenshots and owned video
 2. Provide business/legal details and approve final legal text
 3. Confirm production hosting and activate real email delivery
 4. Final content, accessibility, security and performance polish

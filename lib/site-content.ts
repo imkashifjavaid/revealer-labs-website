@@ -25,6 +25,7 @@ export const projectCategories = [
   "Web Development",
   "AI & Automation",
   "Game Development",
+  "Brand & Motion",
 ] as const;
 
 export type ProjectCategory = Exclude<(typeof projectCategories)[number], "All">;
@@ -40,7 +41,36 @@ export type Project = {
   previewPath: string;
   previewAlt: string;
   demoStatus: "Concept Demo";
+  caseStudySlug?: string;
   externalUrl?: string;
+};
+
+export type CaseStudyVisualMode = "workflow" | "mobile" | "campaign";
+
+export type CaseStudyVisualFrame = {
+  label: string;
+  title: string;
+  description: string;
+  imagePosition?: "left" | "center" | "right";
+};
+
+export type CaseStudy = {
+  slug: string;
+  projectId: string;
+  title: string;
+  eyebrow: string;
+  summary: string;
+  problem: string;
+  proposedSolution: string;
+  role: string[];
+  tools: string[];
+  deliverables: string[];
+  heroPath: string;
+  heroAlt: string;
+  visualMode: CaseStudyVisualMode;
+  visualFrames: CaseStudyVisualFrame[];
+  realNow: string;
+  proposedNext: string;
 };
 
 export type IndustryShowcase = {
@@ -203,6 +233,7 @@ export const projects: Project[] = [
     previewPath: "/previews/flowline-ops.svg",
     previewAlt: "Concept preview of an automation workflow with connected processing steps",
     demoStatus: "Concept Demo",
+    caseStudySlug: "ai-work-order-automation",
   },
   {
     id: "signal-desk",
@@ -288,8 +319,186 @@ export const projects: Project[] = [
     previewPath: "/previews/orbital-courier.svg",
     previewAlt: "Concept preview of a small spacecraft navigating planets and delivery routes",
     demoStatus: "Concept Demo",
+    caseStudySlug: "orbital-courier-mobile-prototype",
+  },
+  {
+    id: "launch-signal-campaign",
+    title: "Launch Signal Campaign",
+    category: "Brand & Motion",
+    description:
+      "A motion-led campaign concept combining polished product moments with creator-style vertical ads.",
+    summary:
+      "An original campaign study exploring how one product story could adapt across cinematic motion, practical demonstrations and short vertical ad formats without presenting the work as a live client campaign.",
+    intendedFeatures: [
+      "Proposed modular campaign art direction",
+      "Proposed motion and vertical-video storyboards",
+      "Proposed creator-style production brief",
+    ],
+    technologies: ["Creative Direction", "Motion Storyboard", "Vertical Video"],
+    previewPath: "/case-studies/launch-signal-campaign.png",
+    previewAlt:
+      "Original concept campaign board showing a desk light in product, creator-demo and motion frames",
+    demoStatus: "Concept Demo",
+    caseStudySlug: "launch-signal-campaign",
   },
 ];
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "ai-work-order-automation",
+    projectId: "flowline-ops",
+    title: "AI Work-Order Automation",
+    eyebrow: "OPERATIONS CONCEPT",
+    summary:
+      "A practical concept for turning inconsistent work requests into structured, reviewable work orders while keeping people responsible for exceptions and approvals.",
+    problem:
+      "Work requests can arrive through forms, inboxes and chat with missing details, inconsistent urgency and no shared routing logic. Teams then spend time rewriting requests, chasing context and manually deciding who should act next.",
+    proposedSolution:
+      "Create a controlled intake workflow that normalizes each request, proposes a category and priority, highlights missing information and routes the draft work order to a human reviewer before assignment. Automation supports the decision; it does not silently make the final call.",
+    role: [
+      "Concept definition and workflow mapping",
+      "Exception and human-review design",
+      "Interface direction for intake and triage",
+      "Proposed integration architecture",
+    ],
+    tools: ["Next.js", "TypeScript", "Node.js", "Webhook integrations", "AI classification API"],
+    deliverables: [
+      "Work-order intake flow",
+      "Classification and confidence model",
+      "Human-review queue concept",
+      "Integration and failure-state notes",
+    ],
+    heroPath: "/previews/flowline-ops.svg",
+    heroAlt: "Concept workflow showing intake, enrichment, review and assignment steps",
+    visualMode: "workflow",
+    visualFrames: [
+      {
+        label: "01 / INTAKE",
+        title: "Capture the request once",
+        description: "Bring form, email or bot submissions into one consistent work-order draft.",
+      },
+      {
+        label: "02 / ASSIST",
+        title: "Suggest, never conceal",
+        description: "Show proposed category, urgency and missing fields with visible confidence cues.",
+      },
+      {
+        label: "03 / REVIEW",
+        title: "Keep a human checkpoint",
+        description: "Let an operator correct the draft before assignment or downstream actions.",
+      },
+    ],
+    realNow:
+      "The workflow map, interface direction and local preview artwork are original concept work prepared for Revealer Labs.",
+    proposedNext:
+      "A functioning intake service, AI model connection, integrations, audit trail and production testing are proposed—not delivered or connected to a real organization.",
+  },
+  {
+    slug: "orbital-courier-mobile-prototype",
+    projectId: "orbital-courier",
+    title: "Orbital Courier: Mobile Prototype",
+    eyebrow: "GAMEPLAY CONCEPT",
+    summary:
+      "A small-screen game prototype direction built around short delivery missions, readable touch controls and route choices that create pressure without visual overload.",
+    problem:
+      "Mobile action games often ask players to read too much, manage too many controls or commit to long sessions. A compact delivery game needs a clear loop that feels satisfying in a few minutes and remains understandable on a small display.",
+    proposedSolution:
+      "Prototype a one-thumb flight model with short planet-to-planet routes, visible fuel and risk trade-offs, and missions that can be completed in brief sessions. Start with one route and one meaningful upgrade before expanding the world.",
+    role: [
+      "Core-loop and mission concept",
+      "Mobile interaction direction",
+      "Progression and feedback planning",
+      "Prototype art direction",
+    ],
+    tools: ["Unity", "C#", "Unity Input System", "Mobile profiling", "Narrative design"],
+    deliverables: [
+      "Core gameplay loop",
+      "Touch-control proposal",
+      "First mission and route outline",
+      "Feedback and progression notes",
+    ],
+    heroPath: "/previews/orbital-courier.svg",
+    heroAlt: "Concept game scene with a courier spacecraft moving between small planets",
+    visualMode: "mobile",
+    visualFrames: [
+      {
+        label: "MISSION BEAT",
+        title: "Choose a route",
+        description: "Balance distance, fuel and optional pickups before leaving the current orbit.",
+      },
+      {
+        label: "TOUCH LOOP",
+        title: "Steer with restraint",
+        description: "Use a compact input model with strong visual feedback instead of a crowded control deck.",
+      },
+      {
+        label: "SHORT REWARD",
+        title: "Deliver and improve",
+        description: "Complete a brief run, review the result and choose one useful navigation upgrade.",
+      },
+    ],
+    realNow:
+      "The gameplay premise, interaction direction and local space-scene artwork are original concept materials.",
+    proposedNext:
+      "A playable Unity build, device profiling, audio, progression balancing and user testing remain proposed and have not been presented as completed work.",
+  },
+  {
+    slug: "launch-signal-campaign",
+    projectId: "launch-signal-campaign",
+    title: "Launch Signal: Motion Campaign",
+    eyebrow: "BRAND CAMPAIGN CONCEPT",
+    summary:
+      "An original campaign system showing how one product story could move between a controlled hero film, useful creator-style demonstrations and short vertical ad cuts.",
+    problem:
+      "Campaigns can lose consistency when polished brand footage and creator-led content are planned separately. The audience sees different promises, visual rules and calls to action instead of one adaptable idea.",
+    proposedSolution:
+      "Build a shared visual and message system first, then express it through three formats: a product reveal, a hands-on creator demonstration and a motion-led feature sequence. Each execution keeps the same core product truth while changing pace and framing for its channel.",
+    role: [
+      "Campaign concept and creative system",
+      "Motion storyboard direction",
+      "Vertical-ad format planning",
+      "Original visual prototyping",
+    ],
+    tools: ["Creative direction", "Figma-style layout planning", "Motion storyboard", "Vertical edit plan"],
+    deliverables: [
+      "Campaign visual direction",
+      "Three-format storyboard set",
+      "Creator-shot brief",
+      "Motion and edit notes",
+    ],
+    heroPath: "/case-studies/launch-signal-campaign.png",
+    heroAlt:
+      "Original campaign concept showing product photography, a hands-on creator demonstration and a motion sequence",
+    visualMode: "campaign",
+    visualFrames: [
+      {
+        label: "HERO FILM",
+        title: "Product reveal",
+        description: "A controlled opening that establishes the object, material and core movement.",
+        imagePosition: "left",
+      },
+      {
+        label: "CREATOR CUT",
+        title: "Hands-on demonstration",
+        description: "A direct vertical-format example focused on setup and practical use.",
+        imagePosition: "center",
+      },
+      {
+        label: "MOTION CUT",
+        title: "Feature in motion",
+        description: "A graphic sequence that turns adjustability into a clear visual beat.",
+        imagePosition: "right",
+      },
+    ],
+    realNow:
+      "The campaign structure, written direction and generated product imagery are original concept assets created for this portfolio study.",
+    proposedNext:
+      "Filming, creator casting, editing, media placement, live campaign delivery and performance results are placeholders for a future real engagement.",
+  },
+];
+
+export const getCaseStudy = (slug: string) =>
+  caseStudies.find((caseStudy) => caseStudy.slug === slug);
 
 export const industryShowcases: IndustryShowcase[] = [
   {

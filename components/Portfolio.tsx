@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ExternalLink, SearchX, X } from "lucide-react";
+import Link from "next/link";
+import { BookOpenText, ExternalLink, SearchX, X } from "lucide-react";
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/Container";
@@ -191,6 +192,15 @@ export function Portfolio() {
                       </li>
                     ))}
                   </ul>
+                  {project.caseStudySlug ? (
+                    <Link
+                      href={`/work/${project.caseStudySlug}`}
+                      className="case-study-card-link relative z-20 mt-6 inline-flex items-center gap-2 rounded-full border border-[#55d98a]/35 bg-[#55d98a]/10 px-4 py-2.5 text-sm font-semibold transition-colors hover:border-[#55d98a]/65 hover:bg-[#55d98a]/15 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#55d98a]"
+                    >
+                      <BookOpenText aria-hidden="true" size={16} />
+                      Read concept case study
+                    </Link>
+                  ) : null}
                 </div>
               </article>
             ))}
@@ -296,16 +306,29 @@ export function Portfolio() {
                   </ul>
                 </div>
 
-                {selectedProject.externalUrl ? (
-                  <a
-                    href={selectedProject.externalUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-9 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-on-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
-                  >
-                    Visit Project
-                    <ExternalLink aria-hidden="true" size={16} />
-                  </a>
+                {selectedProject.caseStudySlug || selectedProject.externalUrl ? (
+                  <div className="mt-9 flex flex-wrap gap-3">
+                    {selectedProject.caseStudySlug ? (
+                      <Link
+                        href={`/work/${selectedProject.caseStudySlug}`}
+                        className="inline-flex items-center gap-2 rounded-full bg-[#2fc66d] px-5 py-3 text-sm font-semibold text-[#041008] transition-colors hover:bg-[#56dd8a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
+                      >
+                        <BookOpenText aria-hidden="true" size={16} />
+                        Read concept case study
+                      </Link>
+                    ) : null}
+                    {selectedProject.externalUrl ? (
+                      <a
+                        href={selectedProject.externalUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-3 text-sm font-semibold text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                      >
+                        Visit Project
+                        <ExternalLink aria-hidden="true" size={16} />
+                      </a>
+                    ) : null}
+                  </div>
                 ) : null}
               </div>
             </div>

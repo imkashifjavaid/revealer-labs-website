@@ -67,6 +67,59 @@
   --dialog-backdrop: rgba(41, 16, 25, 0.52);
 }
 
+.case-study-theme {
+  --canvas: #050806;
+  --content: #f1faf4;
+  --muted: #a7b9ab;
+  --subtle: #789080;
+  --panel: #0a110c;
+  --panel-soft: #0d1710;
+  --line: rgba(185, 255, 207, 0.09);
+  --line-strong: rgba(185, 255, 207, 0.16);
+  --accent: #38d875;
+  --accent-hover: #5ce48e;
+  --accent-ink: #75e9a1;
+  --on-accent: #031008;
+  --header-bg: rgba(5, 8, 6, 0.84);
+  --grid-line: rgba(121, 238, 157, 0.045);
+  --dialog-backdrop: rgba(2, 6, 3, 0.86);
+}
+
+[data-theme="light"] .case-study-theme {
+  --canvas: #f5faf6;
+  --content: #102218;
+  --muted: #52675a;
+  --subtle: #718478;
+  --panel: #ffffff;
+  --panel-soft: #edf6ef;
+  --line: rgba(15, 91, 48, 0.12);
+  --line-strong: rgba(15, 91, 48, 0.2);
+  --accent: #168248;
+  --accent-hover: #0d6d3a;
+  --accent-ink: #126f3d;
+  --on-accent: #ffffff;
+  --header-bg: rgba(245, 250, 246, 0.9);
+  --grid-line: rgba(15, 91, 48, 0.055);
+  --dialog-backdrop: rgba(16, 34, 24, 0.5);
+}
+
+.case-study-card-link { color: #70e5a0; }
+[data-theme="light"] .case-study-card-link { color: #126b37; }
+
+.case-study-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.case-study-glow {
+  background: rgba(56, 216, 117, 0.16);
+  filter: blur(110px);
+  pointer-events: none;
+}
+
 * { box-sizing: border-box; }
 
 html {
