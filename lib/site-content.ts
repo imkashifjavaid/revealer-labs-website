@@ -65,17 +65,29 @@ export type FaqGroup = {
   questions: FaqItem[];
 };
 
+export const contactServiceOptions = [
+  "Web Development",
+  "AI Automation",
+  "Bots & Integrations",
+  "Unity Game Development",
+  "Business Tools",
+  "Technical Support",
+  "Not sure yet",
+] as const;
+
 export const navigationItems: NavigationItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const footerNavigationItems: NavigationItem[] = [
   ...navigationItems,
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Privacy", href: "/privacy-policy" },
+  { label: "Terms", href: "/terms-of-service" },
 ];
 
 export const services: Service[] = [

@@ -1,6 +1,6 @@
 # Revealer Labs website
 
-A responsive one-page agency website for Revealer Labs, covering services, portfolio concepts, capability showcases, studio positioning, an accessible FAQ and a future project-enquiry flow.
+A responsive agency website for Revealer Labs, covering services, portfolio concepts, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
 
 ## Local setup
 
@@ -9,7 +9,10 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) or
+[http://127.0.0.1:3000](http://127.0.0.1:3000). The Next.js development
+configuration explicitly permits the numeric loopback address so client-side
+controls hydrate correctly when that URL is used.
 
 ## Validation
 
@@ -18,6 +21,23 @@ npm run lint
 npm run typecheck
 npm run build
 ```
+
+## Contact form configuration
+
+The form posts to `/api/contact`, which validates every field again on the server, checks a honeypot, limits payload size, verifies same-origin browser requests and applies a best-effort in-memory limit of five requests per IP address every 15 minutes.
+
+Copy `.env.example` to `.env.local` and provide:
+
+```bash
+CONTACT_EMAIL_PROVIDER=resend
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=your_confirmed_recipient_address
+CONTACT_FROM_EMAIL=Revealer Labs <enquiries@your_verified_domain>
+```
+
+`CONTACT_FROM_EMAIL` must use a sender/domain accepted by the Resend account. Restart the development server after changing environment values. None of these values use a `NEXT_PUBLIC_` prefix, so they remain server-only.
+
+For local response testing only, the built-in test adapter accepts `CONTACT_EMAIL_PROVIDER=mock` and `CONTACT_MOCK_RESULT=success` or `failure`. Production-like local testing additionally requires `CONTACT_ENABLE_TEST_ADAPTER=true`. Never enable the test adapter in a deployed environment.
 
 ## Editing content
 
@@ -33,6 +53,7 @@ npm run build
 - The before-interactive initializer in `app/layout.tsx` applies the theme before the page paints.
 - `components/Reveal.tsx` provides one-time, dependency-free section entrances. Reduced-motion preferences disable nonessential movement and smooth scrolling.
 - FAQ group and question content is data-driven. Edit or add typed entries in the `faqGroups` export in `lib/site-content.ts`.
+- The privacy and terms routes are clearly marked drafts. Replace every `[REVIEW REQUIRED: ...]` marker and obtain appropriate legal review before publication.
 
 ## Portfolio concepts
 
@@ -40,4 +61,4 @@ The current portfolio entries are clearly labeled concept demos, not client work
 
 Industry showcases also include an optional `videoPath`. Until owned video is available, the local SVG preview is shown.
 
-The contact form is intentionally a coming-soon state in this milestone. No delivery integration or contact details are configured yet.
+Real contact delivery remains inactive until the four production environment values above are configured. No contact address is displayed publicly.
