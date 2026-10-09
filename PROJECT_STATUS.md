@@ -110,7 +110,7 @@ Completed:
 - New Brand & Motion portfolio category and Launch Signal campaign concept
 - Case-study links in both portfolio cards and accessible project dialogs
 - Original campaign-board artwork with no client identity, claim, testimonial or demo link
-- Scoped black and dark-green case-study palette with a readable light-theme equivalent
+- Shared Revealer Labs dark/light palette across the case studies and main site
 
 Verification completed:
 
@@ -125,6 +125,25 @@ Current limitations:
 - All three studies are concept demonstrations, not completed client work
 - Work-order integrations, the Unity build and campaign production/media results remain proposed
 - Case-study media should be replaced with approved screenshots and owned video when real project material is available
+
+## Brand theme correction
+
+Completed:
+
+- Centralized the Revealer Labs dark and light palettes in shared semantic tokens
+- Applied the same background, surface, text, muted-text and accent system to the homepage, case studies, legal pages and shared navigation
+- Removed the page-scoped case-study palette and remaining pink/burgundy interface accents
+- Unified gradients, glows, borders, shadows, hover states and focus rings around the restrained green brand accent
+- Preserved semantic danger/success feedback and the original colors inside portfolio and case-study artwork
+- Updated the favicon to the shared dark-surface and green-accent palette
+
+Verification completed:
+
+- Every public route checked in both themes at 1440px and 375px widths
+- No horizontal overflow or broken images detected on the homepage, legal pages or three case-study routes
+- Mobile navigation, theme persistence, FAQ expansion and project-dialog Escape/scroll-lock behavior regression-checked
+- Browser console checked without warnings or errors during the route audit
+- `npm run lint`, `npm run typecheck` and `npm run build`
 
 ## Next milestones
 

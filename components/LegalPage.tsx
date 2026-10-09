@@ -17,7 +17,7 @@ export function LegalPage({ eyebrow, title, summary, children }: LegalPageProps)
       <main className="pb-24 pt-32 sm:pb-32 sm:pt-40">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-[2rem] border border-line bg-panel/75 p-6 shadow-[0_28px_90px_rgba(15,3,8,0.12)] sm:p-10 lg:p-14">
+            <div className="rounded-[2rem] border border-line bg-panel/75 p-6 shadow-[0_28px_90px_var(--surface-shadow-soft)] sm:p-10 lg:p-14">
               <span className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent-ink">
                 Draft for review — not legally approved
               </span>

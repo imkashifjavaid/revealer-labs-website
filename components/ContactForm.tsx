@@ -135,7 +135,7 @@ export function ContactForm() {
   };
 
   const fieldClass =
-    "mt-2 w-full rounded-2xl border border-line-strong bg-canvas/65 px-4 py-3.5 text-base text-content outline-none transition placeholder:text-subtle/80 hover:border-accent/35 focus:border-accent focus:ring-3 focus:ring-accent/15 disabled:cursor-not-allowed disabled:opacity-60";
+    "mt-2 w-full rounded-2xl border border-line-strong bg-canvas/65 px-4 py-3.5 text-base text-content outline-none transition placeholder:text-subtle/80 hover:border-accent/35 focus:border-accent focus:ring-3 focus:ring-accent/15 aria-[invalid=true]:border-danger aria-[invalid=true]:ring-3 aria-[invalid=true]:ring-danger/15 disabled:cursor-not-allowed disabled:opacity-60";
 
   return (
     <form
@@ -143,7 +143,7 @@ export function ContactForm() {
       noValidate
       aria-busy={isSubmitting}
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-line bg-panel/85 p-5 shadow-[0_24px_80px_rgba(15,3,8,0.16)] backdrop-blur sm:p-7"
+      className="rounded-3xl border border-line bg-panel/85 p-5 shadow-[0_24px_80px_var(--surface-shadow-soft)] backdrop-blur sm:p-7"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField label="Name" name="name" error={state.fieldErrors.name}>
@@ -238,9 +238,9 @@ export function ContactForm() {
         aria-atomic="true"
         className={`mt-5 min-h-12 rounded-2xl border px-4 py-3 text-sm leading-6 ${ 
           state.status === "success"
-            ? "border-emerald-500/30 bg-emerald-500/10 text-content"
+            ? "border-success/30 bg-success/10 text-success-ink"
             : state.status === "error"
-              ? "border-accent/35 bg-accent/10 text-content"
+              ? "border-danger/35 bg-danger/10 text-danger-ink"
               : "border-transparent text-muted"
         }`}
       >
@@ -257,7 +257,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-[0_12px_36px_rgba(255,27,86,0.24)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content disabled:cursor-not-allowed disabled:opacity-65 motion-reduce:transform-none"
+          className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-[0_12px_36px_var(--accent-glow)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content disabled:cursor-not-allowed disabled:opacity-65 motion-reduce:transform-none"
         >
           {isSubmitting ? (
             <LoaderCircle aria-hidden="true" size={17} className="animate-spin motion-reduce:animate-none" />
@@ -292,7 +292,7 @@ function FormField({
       </label>
       {children}
       {error ? (
-        <p id={`contact-${name}-error`} className="mt-2 text-sm leading-6 text-accent-ink">
+        <p id={`contact-${name}-error`} className="mt-2 text-sm leading-6 text-danger-ink">
           {error}
         </p>
       ) : null}

@@ -46,7 +46,7 @@ export function Faq() {
             return (
               <div
                 key={group.id}
-                className="reveal-child overflow-hidden rounded-3xl border border-line bg-panel shadow-[0_20px_70px_rgba(18,4,10,0.12)]"
+                className="reveal-child overflow-hidden rounded-3xl border border-line bg-panel shadow-[0_20px_70px_var(--surface-shadow-soft)]"
                 style={{ "--reveal-order": groupIndex } as CSSProperties}
               >
                 <h3>

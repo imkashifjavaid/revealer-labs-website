@@ -131,7 +131,7 @@ export function Portfolio() {
                 onClick={() => changeCategory(category)}
                 className={`rounded-full border px-4 py-2.5 text-sm font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none sm:px-5 ${
                   isActive
-                    ? "border-accent bg-accent text-on-accent shadow-[0_8px_26px_rgba(255,27,86,0.2)]"
+                    ? "border-accent bg-accent text-on-accent shadow-[0_8px_26px_var(--accent-glow)]"
                     : "border-line-strong bg-content/[0.025] text-muted hover:border-accent/40 hover:text-content"
                 }`}
               >
@@ -170,7 +170,7 @@ export function Portfolio() {
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
                     className="object-cover transition duration-500 group-hover:scale-[1.025] motion-reduce:transform-none"
                   />
-                  <span className="absolute left-4 top-4 rounded-full border border-accent/25 bg-[#160A0E]/85 px-3 py-1.5 text-xs font-semibold tracking-[0.08em] text-[#ff9ab5] backdrop-blur-md">
+                  <span className="absolute left-4 top-4 rounded-full border border-accent/25 bg-panel/90 px-3 py-1.5 text-xs font-semibold tracking-[0.08em] text-accent-ink backdrop-blur-md">
                     {project.demoStatus}
                   </span>
                 </div>
@@ -195,7 +195,7 @@ export function Portfolio() {
                   {project.caseStudySlug ? (
                     <Link
                       href={`/work/${project.caseStudySlug}`}
-                      className="case-study-card-link relative z-20 mt-6 inline-flex items-center gap-2 rounded-full border border-[#55d98a]/35 bg-[#55d98a]/10 px-4 py-2.5 text-sm font-semibold transition-colors hover:border-[#55d98a]/65 hover:bg-[#55d98a]/15 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#55d98a]"
+                      className="relative z-20 mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:border-accent/65 hover:bg-accent/15 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
                     >
                       <BookOpenText aria-hidden="true" size={16} />
                       Read concept case study
@@ -241,7 +241,7 @@ export function Portfolio() {
             aria-modal="true"
             aria-labelledby="project-dialog-title"
             aria-describedby="project-dialog-summary"
-            className="relative my-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-line-strong bg-panel shadow-[0_40px_120px_rgba(0,0,0,0.45)]"
+            className="relative my-auto w-full max-w-5xl overflow-hidden rounded-[2rem] border border-line-strong bg-panel shadow-[0_40px_120px_var(--surface-shadow)]"
           >
             <button
               type="button"
@@ -311,7 +311,7 @@ export function Portfolio() {
                     {selectedProject.caseStudySlug ? (
                       <Link
                         href={`/work/${selectedProject.caseStudySlug}`}
-                        className="inline-flex items-center gap-2 rounded-full bg-[#2fc66d] px-5 py-3 text-sm font-semibold text-[#041008] transition-colors hover:bg-[#56dd8a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
+                        className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
                       >
                         <BookOpenText aria-hidden="true" size={16} />
                         Read concept case study

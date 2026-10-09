@@ -49,7 +49,7 @@ export function Header() {
           <ThemeToggle />
           <Link
             href="/#contact"
-            className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent shadow-[0_0_28px_rgba(255,27,86,0.2)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content motion-reduce:transform-none lg:inline-flex"
+            className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent shadow-[0_0_28px_var(--accent-glow)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content motion-reduce:transform-none lg:inline-flex"
           >
             Let&apos;s Talk
           </Link>

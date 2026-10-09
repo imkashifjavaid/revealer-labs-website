@@ -9,7 +9,7 @@ import type { CaseStudy } from "@/lib/site-content";
 
 export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
-    <div className="case-study-theme min-h-screen bg-canvas text-content">
+    <div className="min-h-screen bg-canvas text-content">
       <Header />
       <main>
         <section className="relative overflow-hidden pb-20 pt-32 sm:pb-24 sm:pt-40">
@@ -52,7 +52,7 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
               </aside>
             </div>
 
-            <div className="mt-12 overflow-hidden rounded-[2rem] border border-line-strong bg-panel shadow-[0_35px_100px_rgba(0,0,0,0.28)] sm:mt-16">
+            <div className="mt-12 overflow-hidden rounded-[2rem] border border-line-strong bg-panel shadow-[0_35px_100px_var(--surface-shadow)] sm:mt-16">
               <div className="relative aspect-[16/10] sm:aspect-[16/8.5]">
                 <Image
                   src={caseStudy.heroPath}
@@ -208,7 +208,7 @@ function CaseStudyVisual({ caseStudy }: { caseStudy: CaseStudy }) {
     return (
       <div className="mt-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="rounded-[2rem] border border-line bg-panel p-5 sm:p-8">
-          <div className="mx-auto max-w-sm rounded-[2.4rem] border border-line-strong bg-[#050806] p-3 shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
+          <div className="mx-auto max-w-sm rounded-[2.4rem] border border-line-strong bg-[#050806] p-3 shadow-[0_30px_80px_var(--surface-shadow)]">
             <div className="relative aspect-[9/16] overflow-hidden rounded-[1.8rem]">
               <Image
                 src={caseStudy.heroPath}
