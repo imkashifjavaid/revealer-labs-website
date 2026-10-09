@@ -11,7 +11,7 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
     <div className="min-h-screen bg-canvas text-content">
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="relative overflow-hidden pb-20 pt-32 sm:pb-24 sm:pt-40">
           <div aria-hidden="true" className="case-study-grid absolute inset-0" />
           <div aria-hidden="true" className="case-study-glow absolute -right-40 top-16 size-[32rem] rounded-full" />

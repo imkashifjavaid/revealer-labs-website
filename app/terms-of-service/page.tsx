@@ -3,8 +3,23 @@ import Link from "next/link";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Service Draft | Revealer Labs",
+  title: "Terms of Service Draft",
   description: "Draft terms for using the Revealer Labs website and project enquiry form.",
+  alternates: { canonical: "/terms-of-service" },
+  openGraph: {
+    type: "website",
+    title: "Terms of Service Draft | Revealer Labs",
+    description: "Draft terms for using the Revealer Labs website and project enquiry form.",
+    url: "/terms-of-service",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service Draft | Revealer Labs",
+    description: "Draft terms for using the Revealer Labs website and project enquiry form.",
+    images: ["/twitter-image"],
+  },
+  robots: { index: false, follow: false },
 };
 
 export default function TermsOfServicePage() {

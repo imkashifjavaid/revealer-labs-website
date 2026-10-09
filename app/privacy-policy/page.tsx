@@ -3,8 +3,23 @@ import Link from "next/link";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy Draft | Revealer Labs",
+  title: "Privacy Policy Draft",
   description: "Draft privacy information for the Revealer Labs website and project enquiry form.",
+  alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    type: "website",
+    title: "Privacy Policy Draft | Revealer Labs",
+    description: "Draft privacy information for the Revealer Labs website and project enquiry form.",
+    url: "/privacy-policy",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy Draft | Revealer Labs",
+    description: "Draft privacy information for the Revealer Labs website and project enquiry form.",
+    images: ["/twitter-image"],
+  },
+  robots: { index: false, follow: false },
 };
 
 export default function PrivacyPolicyPage() {

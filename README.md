@@ -29,11 +29,16 @@ The form posts to `/api/contact`, which validates every field again on the serve
 Copy `.env.example` to `.env.local` and provide:
 
 ```bash
+SITE_URL=https://your-production-domain.example
 CONTACT_EMAIL_PROVIDER=resend
 RESEND_API_KEY=your_resend_api_key
 CONTACT_TO_EMAIL=your_confirmed_recipient_address
 CONTACT_FROM_EMAIL=Revealer Labs <enquiries@your_verified_domain>
 ```
+
+`SITE_URL` is the public production origin used for canonical metadata,
+`robots.txt` and `sitemap.xml`. Include `https://` and do not include a path,
+query string or fragment.
 
 `CONTACT_FROM_EMAIL` must use a sender/domain accepted by the Resend account. Restart the development server after changing environment values. None of these values use a `NEXT_PUBLIC_` prefix, so they remain server-only.
 
@@ -72,4 +77,10 @@ Three portfolio entries link to dedicated pages under `/work/[slug]`:
 
 The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Each entry separates original concept material from proposed implementation, tools, production and outcomes. The campaign board is an original generated asset created for this website; it does not represent a client, working product or live campaign.
 
-Real contact delivery remains inactive until the four production environment values above are configured. No contact address is displayed publicly.
+Real contact delivery remains inactive until the four contact-delivery environment values above are configured. No contact address is displayed publicly.
+
+## Launch readiness
+
+See `LAUNCH_CHECKLIST.md` for completed QA, unresolved launch blockers, the exact
+production environment values and the distinction between mock email tests and
+verified real delivery.

@@ -145,9 +145,49 @@ Verification completed:
 - Browser console checked without warnings or errors during the route audit
 - `npm run lint`, `npm run typecheck` and `npm run build`
 
+## Milestone 6 — final QA and launch readiness
+
+Completed:
+
+- Production-origin helper and canonical metadata for every public route
+- Generated Open Graph and Twitter sharing artwork using the Revealer Labs green palette
+- Generated `robots.txt` and a sitemap covering the homepage and three indexable case studies
+- `noindex, nofollow` metadata for the unapproved legal drafts
+- Skip-to-content navigation plus accessible custom 404 and route-error states
+- Baseline security headers for MIME sniffing, framing, referrer data and unused device permissions
+- Production-origin and contact-delivery variables documented in `.env.example`, README and `LAUNCH_CHECKLIST.md`
+- Explicit separation of mock email-path checks from unverified real Resend delivery
+
+Verification completed:
+
+- `npm run lint`, `npm run typecheck` and `npm run build`
+- All six public routes checked at 375px and 1440px in light and dark themes
+- One main landmark and primary heading per route, labelled controls, image alternatives, unique IDs and skip navigation checked
+- Mobile menu, portfolio filters, Show More, project dialog, FAQ, contact validation focus and theme persistence regression-tested
+- Canonical URLs, descriptions, route titles, draft-page robots directives and social-image metadata inspected in the production build
+- `robots.txt`, `sitemap.xml`, generated social image, custom 404 and response security headers verified over HTTP
+- Local mock contact adapter returned HTTP 200 in success mode and HTTP 503 in failure mode
+- Missing delivery configuration returned HTTP 503; invalid fields returned HTTP 422 with field errors
+- No horizontal overflow, broken images or browser console warnings/errors in the final route matrix
+- The 1.79 MB source campaign image was delivered through Next.js image optimization at approximately 88 KB for the checked 640px mobile rendition
+
+Launch blockers:
+
+- Configure the final `SITE_URL` and rebuild so public metadata does not use the local fallback
+- Provide live Resend credentials, verified sender and confirmed recipient, then verify provider acceptance and inbox receipt
+- Complete every legal review marker and obtain appropriate legal approval
+- Select the production host and decide whether the per-instance in-memory rate limiter is sufficient
+- Run deployed Lighthouse/Core Web Vitals checks on the final HTTPS origin
+
+Verification limitations:
+
+- No real email was sent because live credentials were not provided
+- Local QA is not a substitute for deployed network performance or field Core Web Vitals
+- Automated Axe and Lighthouse runners were not installed; accessibility was checked with linting, semantic DOM inspection, the browser accessibility tree and keyboard interaction tests
+
 ## Next milestones
 
-1. Replace concept media with approved portfolio work, screenshots and owned video
-2. Provide business/legal details and approve final legal text
-3. Confirm production hosting and activate real email delivery
-4. Final content, accessibility, security and performance polish
+1. Close the blockers in `LAUNCH_CHECKLIST.md`
+2. Replace concept media with approved portfolio work, screenshots and owned video when available
+3. Configure the selected production host and verify real email delivery
+4. Complete deployed performance, security and launch-day checks

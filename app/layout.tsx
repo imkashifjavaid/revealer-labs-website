@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "@fontsource-variable/inter";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const themeInitializer = `(() => {
@@ -18,9 +19,31 @@ const themeInitializer = `(() => {
 })();`;
 
 export const metadata: Metadata = {
-  title: "Revealer Labs | Digital Solutions & Development",
+  metadataBase: getSiteUrl(),
+  title: {
+    default: "Revealer Labs | Digital Solutions & Development",
+    template: "%s | Revealer Labs",
+  },
   description:
     "Web development, AI automation and interactive experiences built around real business needs.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Revealer Labs",
+    title: "Revealer Labs | Digital Solutions & Development",
+    description:
+      "Web development, AI automation and interactive experiences built around real business needs.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Revealer Labs | Digital Solutions & Development",
+    description:
+      "Web development, AI automation and interactive experiences built around real business needs.",
+  },
   icons: {
     icon: "/favicon.svg",
   },
@@ -36,7 +59,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: themeInitializer }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-3 z-[200] -translate-y-24 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-on-accent shadow-lg transition-transform focus:translate-y-0 focus:outline-2 focus:outline-offset-2 focus:outline-content motion-reduce:transition-none"
+        >
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

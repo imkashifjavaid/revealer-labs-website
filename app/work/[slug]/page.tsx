@@ -16,12 +16,28 @@ export async function generateMetadata({ params }: CaseStudyRouteProps): Promise
   const caseStudy = getCaseStudy(slug);
 
   if (!caseStudy) {
-    return { title: "Concept Case Study | Revealer Labs" };
+    return { title: "Concept Case Study" };
   }
 
+  const description = `${caseStudy.summary} Concept demo; not completed client work.`;
+
   return {
-    title: `${caseStudy.title} | Revealer Labs`,
-    description: `${caseStudy.summary} Concept demo; not completed client work.`,
+    title: caseStudy.title,
+    description,
+    alternates: { canonical: `/work/${caseStudy.slug}` },
+    openGraph: {
+      type: "article",
+      title: `${caseStudy.title} | Revealer Labs`,
+      description,
+      url: `/work/${caseStudy.slug}`,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${caseStudy.title} | Revealer Labs`,
+      description,
+      images: ["/twitter-image"],
+    },
   };
 }
 
