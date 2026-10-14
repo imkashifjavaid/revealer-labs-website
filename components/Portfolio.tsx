@@ -54,7 +54,9 @@ export function Portfolio() {
 
     const focusDialog = window.requestAnimationFrame(() => {
       dialogRef.current
-        ?.querySelector<HTMLElement>("button, a[href], [tabindex]:not([tabindex='-1'])")
+        ?.querySelector<HTMLElement>(
+          "button, a[href], video[controls], [tabindex]:not([tabindex='-1'])",
+        )
         ?.focus();
     });
 
@@ -69,7 +71,7 @@ export function Portfolio() {
 
       const focusableElements = Array.from(
         dialogRef.current.querySelectorAll<HTMLElement>(
-          "button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])",
+          "button:not([disabled]), a[href], video[controls], [tabindex]:not([tabindex='-1'])",
         ),
       ).filter((element) => element.offsetParent !== null);
 
@@ -113,7 +115,7 @@ export function Portfolio() {
           />
 
           <p className="mx-auto mt-7 max-w-3xl text-center text-base leading-7 text-muted">
-            Each entry is labelled as a concept demo or visual showcase; completed client work will be added when approved.
+            Each entry is labelled as a concept demo, visual showcase or concept campaign; completed client work will be added when approved.
           </p>
 
           <div
@@ -182,7 +184,7 @@ export function Portfolio() {
                     {project.title}
                   </h3>
                   <p className="mt-3 text-base leading-7 text-muted">{project.description}</p>
-                  <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
+                  <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${project.title} tags`}>
                     {project.technologies.map((technology) => (
                       <li
                         key={technology}
@@ -253,7 +255,9 @@ export function Portfolio() {
             </button>
 
             <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-              {selectedProject.galleryImages?.length ? (
+              {selectedProject.videoPath ? (
+                <ProjectVideo project={selectedProject} />
+              ) : selectedProject.galleryImages?.length ? (
                 <ProjectGallery key={selectedProject.id} project={selectedProject} />
               ) : (
                 <div className="preview-frame relative min-h-64 border-b border-line sm:min-h-96 lg:min-h-[38rem] lg:border-b-0 lg:border-r">
@@ -262,7 +266,7 @@ export function Portfolio() {
                     alt={selectedProject.previewAlt}
                     fill
                     sizes="(max-width: 1023px) 100vw, 55vw"
-                    className="object-cover"
+                    className={selectedProject.previewFit === "contain" ? "object-contain" : "object-cover"}
                   />
                 </div>
               )}
@@ -299,7 +303,9 @@ export function Portfolio() {
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="text-sm font-semibold tracking-[0.12em] text-content">TECHNOLOGY</h3>
+                  <h3 className="text-sm font-semibold tracking-[0.12em] text-content">
+                    {selectedProject.tagHeading ?? "TECHNOLOGY"}
+                  </h3>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {selectedProject.technologies.map((technology) => (
                       <li
@@ -342,6 +348,32 @@ export function Portfolio() {
         </div>
       ) : null}
     </section>
+  );
+}
+
+function ProjectVideo({ project }: { project: Project }) {
+  if (!project.videoPath) return null;
+
+  return (
+    <div className="preview-frame border-b border-line p-3 sm:p-5 lg:border-b-0 lg:border-r">
+      <div className="mx-auto max-w-sm overflow-hidden rounded-2xl border border-line-strong bg-black shadow-[0_24px_70px_var(--surface-shadow)]">
+        <video
+          controls
+          preload="none"
+          playsInline
+          poster={project.videoPosterPath ?? project.previewPath}
+          aria-label={project.videoLabel ?? `${project.title} video`}
+          className="aspect-[9/16] w-full bg-black object-contain"
+        >
+          <source src={project.videoPath} type="video/mp4" />
+          Your browser does not support HTML video playback.
+        </video>
+      </div>
+      <div className="mx-auto mt-4 flex max-w-sm flex-wrap items-center justify-between gap-2 px-1 text-xs font-semibold tracking-[0.08em] text-subtle">
+        <span>FINAL VERTICAL CONCEPT VIDEO</span>
+        <span>UGC-STYLE AD · 00:08</span>
+      </div>
+    </div>
   );
 }
 

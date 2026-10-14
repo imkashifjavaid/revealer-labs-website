@@ -47,9 +47,13 @@ export type Project = {
   previewPath: string;
   previewAlt: string;
   previewFit?: "cover" | "contain";
-  demoStatus: "Concept Demo" | "Visual Showcase";
+  demoStatus: "Concept Demo" | "Visual Showcase" | "Concept Campaign";
   detailHeading?: string;
+  tagHeading?: string;
   galleryImages?: ProjectGalleryImage[];
+  videoPath?: string;
+  videoPosterPath?: string;
+  videoLabel?: string;
   caseStudySlug?: string;
   externalUrl?: string;
 };
@@ -387,6 +391,31 @@ export const projects: Project[] = [
       "Original concept campaign board showing a desk light in product, creator-demo and motion frames",
     demoStatus: "Concept Demo",
     caseStudySlug: "launch-signal-campaign",
+  },
+  {
+    id: "naseem-perfume-ad-concept",
+    title: "Naseem — Perfume Ad Concept",
+    category: "Brand & Motion",
+    description:
+      "An eight-second creator-style perfume concept built around a direct-to-camera product presentation.",
+    summary:
+      "A finished vertical video created as a Revealer Labs portfolio concept. Naseem appears only as the featured product; this is not a product sold by Revealer Labs, a client campaign or a claim of commercial results.",
+    intendedFeatures: [
+      "Creative concept and short-form ad execution by Revealer Labs",
+      "Direct-to-camera presentation structured around the featured perfume",
+      "Final eight-second vertical edit prepared for portfolio presentation",
+    ],
+    technologies: ["UGC-style Ad", "Vertical Video", "H.264 MP4"],
+    previewPath: "/portfolio/naseem-perfume-concept/naseem-perfume-ad-poster.webp",
+    previewAlt:
+      "Woman holding a bottle of Naseem perfume beside a vanity in a vertical creator-style portrait",
+    previewFit: "contain",
+    demoStatus: "Concept Campaign",
+    detailHeading: "CREATIVE CONTRIBUTION",
+    tagHeading: "FORMAT",
+    videoPath: "/portfolio/naseem-perfume-concept/naseem-perfume-concept-ad.mp4",
+    videoPosterPath: "/portfolio/naseem-perfume-concept/naseem-perfume-ad-poster.webp",
+    videoLabel: "Naseem perfume UGC-style concept ad",
   },
 ];
 

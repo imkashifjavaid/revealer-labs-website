@@ -220,3 +220,22 @@ Details still needed from the owner:
 - Exact contribution to the scenes
 - Provenance and reuse/licensing rights for vehicle, environment and other third-party assets
 - Whether any additional production context should be published with the renders
+
+## Portfolio addition — Naseem perfume concept ad
+
+Completed:
+
+- Added one Brand & Motion entry titled “Naseem — Perfume Ad Concept”
+- Classified the eight-second vertical video as a UGC-style Ad after reviewing its direct-to-camera, creator-led presentation
+- Labelled the entry “Concept Campaign” and clearly stated that Naseem is the featured product, not a Revealer Labs product or client campaign
+- Added the supplied finished video with native controls, no autoplay, inline mobile playback and `preload="none"`
+- Added a 222,552-byte WebP poster derived from the supplied 941×1672 still; the portfolio grid loads only this optimized still
+- Preserved the supplied 3,845,684-byte video unchanged because it is already a web-compatible 720×1280 H.264/AAC MP4 with fast-start metadata
+- Added the playable video to the existing accessible project dialog without creating an external or dummy link
+- Omitted captions because an accurate spoken transcript was not available from the supplied files
+
+Details still needed from the owner:
+
+- Confirmation of the exact production roles beyond the stated Revealer Labs concept creation
+- An approved transcript if captions should be added
+- Confirmation that the supplied performer, product imagery, music/audio and other included media are cleared for public portfolio use
