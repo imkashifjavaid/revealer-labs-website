@@ -30,6 +30,12 @@ export const projectCategories = [
 
 export type ProjectCategory = Exclude<(typeof projectCategories)[number], "All">;
 
+export type ProjectGalleryImage = {
+  path: string;
+  alt: string;
+  caption: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -40,7 +46,10 @@ export type Project = {
   technologies: string[];
   previewPath: string;
   previewAlt: string;
-  demoStatus: "Concept Demo";
+  previewFit?: "cover" | "contain";
+  demoStatus: "Concept Demo" | "Visual Showcase";
+  detailHeading?: string;
+  galleryImages?: ProjectGalleryImage[];
   caseStudySlug?: string;
   externalUrl?: string;
 };
@@ -268,6 +277,44 @@ export const projects: Project[] = [
     previewPath: "/previews/ledger-loop.svg",
     previewAlt: "Concept preview of a document automation queue with extracted fields and status indicators",
     demoStatus: "Concept Demo",
+  },
+  {
+    id: "driving-game-scene-unity-visual-showcase",
+    title: "Driving Game Scene — Unity Visual Showcase",
+    category: "Game Development",
+    description:
+      "Vehicle and highway scenes presented as renders from my Unity work, showing a visual direction for a driving game.",
+    summary:
+      "Three older Unity scene renders previously used in a Fiverr gig, presented here as a visual showcase rather than gameplay footage, a released title, a client commission or a finished game.",
+    intendedFeatures: [
+      "Highway scene with a green car beside a police car",
+      "Garage presentation scene featuring the green car",
+      "Rear highway view featuring green and orange cars",
+    ],
+    technologies: ["Unity"],
+    previewPath: "/portfolio/driving-game-scene-unity/unity-highway-police-car-render.png",
+    previewAlt:
+      "Unity scene render showing a bright green car beside a police car on a highway with a helicopter overhead",
+    previewFit: "contain",
+    demoStatus: "Visual Showcase",
+    detailHeading: "SHOWCASE VIEWS",
+    galleryImages: [
+      {
+        path: "/portfolio/driving-game-scene-unity/unity-highway-police-car-render.png",
+        alt: "Unity scene render showing a bright green car beside a police car on a highway with a helicopter overhead",
+        caption: "Highway scene — front view with the green car and police car",
+      },
+      {
+        path: "/portfolio/driving-game-scene-unity/unity-garage-green-car-render.png",
+        alt: "Unity scene render showing a bright green car displayed inside a garage",
+        caption: "Garage scene — green car presentation view",
+      },
+      {
+        path: "/portfolio/driving-game-scene-unity/unity-highway-rear-cars-render.png",
+        alt: "Unity scene render showing rear views of green and orange cars on a highway with a police helicopter overhead",
+        caption: "Highway scene — rear view of the green and orange cars",
+      },
+    ],
   },
   {
     id: "neon-circuit",

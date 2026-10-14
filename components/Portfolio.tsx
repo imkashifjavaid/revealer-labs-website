@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpenText, ExternalLink, SearchX, X } from "lucide-react";
-import type { CSSProperties } from "react";
+import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
@@ -107,13 +107,13 @@ export function Portfolio() {
         <Reveal>
           <SectionHeader
             eyebrow="PORTFOLIO"
-            title="Ideas Turned Into Working Products"
-            description="A look at the kinds of focused digital products Revealer Labs can shape—from useful web platforms to automated workflows and interactive worlds."
+            title="Ideas Shaped Into Digital Work"
+            description="A look at focused digital work Revealer Labs can shape—from useful web platforms to automated workflows, interactive concepts and visual showcases."
             align="center"
           />
 
           <p className="mx-auto mt-7 max-w-3xl text-center text-base leading-7 text-muted">
-            These are illustrative concept examples while the real Revealer Labs portfolio is being prepared.
+            Each entry is labelled as a concept demo or visual showcase; completed client work will be added when approved.
           </p>
 
           <div
@@ -168,7 +168,7 @@ export function Portfolio() {
                     fill
                     preload={index === 0}
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.025] motion-reduce:transform-none"
+                    className={`${project.previewFit === "contain" ? "object-contain" : "object-cover"} transition duration-500 group-hover:scale-[1.025] motion-reduce:transform-none`}
                   />
                   <span className="absolute left-4 top-4 rounded-full border border-accent/25 bg-panel/90 px-3 py-1.5 text-xs font-semibold tracking-[0.08em] text-accent-ink backdrop-blur-md">
                     {project.demoStatus}
@@ -253,15 +253,19 @@ export function Portfolio() {
             </button>
 
             <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="preview-frame relative min-h-64 border-b border-line sm:min-h-96 lg:min-h-[38rem] lg:border-b-0 lg:border-r">
-                <Image
-                  src={selectedProject.previewPath}
-                  alt={selectedProject.previewAlt}
-                  fill
-                  sizes="(max-width: 1023px) 100vw, 55vw"
-                  className="object-cover"
-                />
-              </div>
+              {selectedProject.galleryImages?.length ? (
+                <ProjectGallery key={selectedProject.id} project={selectedProject} />
+              ) : (
+                <div className="preview-frame relative min-h-64 border-b border-line sm:min-h-96 lg:min-h-[38rem] lg:border-b-0 lg:border-r">
+                  <Image
+                    src={selectedProject.previewPath}
+                    alt={selectedProject.previewAlt}
+                    fill
+                    sizes="(max-width: 1023px) 100vw, 55vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
 
               <div className="max-h-[82vh] overflow-y-auto p-6 sm:p-9 lg:p-11">
                 <span className="inline-flex rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-xs font-semibold tracking-[0.1em] text-accent-ink">
@@ -281,7 +285,9 @@ export function Portfolio() {
                 </p>
 
                 <div className="mt-8">
-                  <h3 className="text-sm font-semibold tracking-[0.12em] text-content">FEATURE DIRECTION</h3>
+                  <h3 className="text-sm font-semibold tracking-[0.12em] text-content">
+                    {selectedProject.detailHeading ?? "FEATURE DIRECTION"}
+                  </h3>
                   <ul className="mt-4 space-y-3">
                     {selectedProject.intendedFeatures.map((feature) => (
                       <li key={feature} className="flex gap-3 text-sm leading-6 text-muted">
@@ -336,5 +342,112 @@ export function Portfolio() {
         </div>
       ) : null}
     </section>
+  );
+}
+
+function ProjectGallery({ project }: { project: Project }) {
+  const images = project.galleryImages ?? [];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const thumbnailRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const activeImage = images[activeIndex];
+
+  if (!activeImage) return null;
+
+  const selectImage = (index: number, moveFocus = false) => {
+    setActiveIndex(index);
+    if (moveFocus) thumbnailRefs.current[index]?.focus();
+  };
+
+  const handleThumbnailKeyDown = (
+    event: ReactKeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    let nextIndex: number | null = null;
+
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      nextIndex = (index + 1) % images.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      nextIndex = (index - 1 + images.length) % images.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = images.length - 1;
+    }
+
+    if (nextIndex === null) return;
+    event.preventDefault();
+    selectImage(nextIndex, true);
+  };
+
+  return (
+    <div className="preview-frame border-b border-line p-3 sm:p-4 lg:border-b-0 lg:border-r">
+      <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/45">
+        <Image
+          src={activeImage.path}
+          alt={activeImage.alt}
+          fill
+          sizes="(max-width: 1023px) 100vw, 55vw"
+          className="object-contain"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute right-3 top-3 rounded-full border border-white/20 bg-black/65 px-3 py-1 font-mono text-xs font-semibold tracking-wider text-white backdrop-blur-sm"
+        >
+          {String(activeIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+        </span>
+      </div>
+
+      <div
+        role="group"
+        aria-label={`${project.title} image gallery`}
+        className="mt-3 grid grid-cols-3 gap-2 sm:gap-3"
+      >
+        {images.map((image, index) => {
+          const isActive = activeIndex === index;
+
+          return (
+            <button
+              key={image.path}
+              ref={(element) => {
+                thumbnailRefs.current[index] = element;
+              }}
+              type="button"
+              aria-label={`View ${index + 1} of ${images.length}: ${image.caption}`}
+              aria-pressed={isActive}
+              onClick={() => selectImage(index)}
+              onKeyDown={(event) => handleThumbnailKeyDown(event, index)}
+              className={`relative aspect-video overflow-hidden rounded-xl border bg-black/35 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                isActive ? "border-accent" : "border-line-strong hover:border-accent/55"
+              }`}
+            >
+              <Image
+                src={image.path}
+                alt=""
+                fill
+                sizes="(max-width: 1023px) 30vw, 16vw"
+                className="object-contain"
+              />
+              <span
+                aria-hidden="true"
+                className={`absolute bottom-1.5 left-1.5 grid size-6 place-items-center rounded-md border font-mono text-[10px] font-bold backdrop-blur-sm sm:bottom-2 sm:left-2 ${
+                  isActive
+                    ? "border-accent/60 bg-accent text-accent-contrast"
+                    : "border-white/20 bg-black/65 text-white"
+                }`}
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mt-3 px-1 text-sm leading-6 text-muted">
+        <p>{activeImage.caption}</p>
+        <p className="sr-only" aria-live="polite">
+          Showing image {activeIndex + 1} of {images.length}: {activeImage.caption}
+        </p>
+      </div>
+    </div>
   );
 }

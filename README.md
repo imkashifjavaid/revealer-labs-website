@@ -63,7 +63,9 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 
 ## Portfolio concepts
 
-The current portfolio entries are clearly labeled concept demos, not client work. Each project record includes its category, summary, proposed feature direction, technology tags, preview path, demo status and an optional `externalUrl` field. External links render only when a real URL is provided.
+The portfolio entries are clearly labelled as concept demos or visual showcases. Each project record includes its category, summary, supporting notes, technology tags, preview path, status and optional gallery, case-study or external-link fields. External links render only when a real URL is provided.
+
+The Driving Game Scene visual showcase uses three user-supplied older Unity renders stored under `public/portfolio/driving-game-scene-unity/`. The copied PNG bytes are unchanged. The entry does not claim authorship of individual vehicle or environment assets, and the owner's exact contribution and underlying asset-licensing details remain to be documented before the images are licensed or reused outside this portfolio context.
 
 Industry showcases also include an optional `videoPath`. Until owned video is available, the local SVG preview is shown.
 

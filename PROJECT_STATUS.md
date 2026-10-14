@@ -191,3 +191,32 @@ Verification limitations:
 2. Replace concept media with approved portfolio work, screenshots and owned video when available
 3. Configure the selected production host and verify real email delivery
 4. Complete deployed performance, security and launch-day checks
+
+## Portfolio addition — Unity driving scene visual showcase
+
+Completed:
+
+- Added one Game Development entry titled “Driving Game Scene — Unity Visual Showcase”
+- Used the user-supplied highway/police-car render as the portfolio cover
+- Added the garage render and rear highway render to the same project gallery
+- Preserved all three original PNG files without recolouring, regeneration or byte-level modification
+- Added responsive `next/image` delivery with contain-fit presentation so the vehicles remain visible
+- Added click, Tab/Enter and arrow-key gallery controls inside the existing accessible project dialog
+- Displayed “Visual Showcase” on both the card and detailed dialog view
+- Limited the stated technology to Unity and avoided claims about gameplay, release status, clients, modelling, asset ownership or development results
+- Kept the entry in the existing Game Development filter without creating a duplicate section or case-study route
+
+Verification completed:
+
+- `npm run lint`, `npm run typecheck` and `npm run build`
+- Game Development filtering and the existing Show More/reset behavior
+- Gallery selection with click, Tab/Enter, arrow keys, Home and End
+- Dialog Escape close, focus restoration and background scroll locking
+- Desktop and 375px mobile layouts in light and dark themes
+- Image loading, contain-fit presentation, horizontal overflow and browser console output
+
+Details still needed from the owner:
+
+- Exact contribution to the scenes
+- Provenance and reuse/licensing rights for vehicle, environment and other third-party assets
+- Whether any additional production context should be published with the renders
