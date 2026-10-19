@@ -5,7 +5,7 @@ Last reviewed: 2026-10-10
 ## Completed checks
 
 - [x] Production lint, TypeScript and Next.js build complete successfully
-- [x] Homepage, Privacy Policy draft, Terms of Service draft and all three case-study routes render successfully
+- [x] Homepage, Privacy Policy draft, Terms of Service draft and all four case-study routes render successfully
 - [x] Mobile and desktop layouts checked without horizontal overflow or broken local assets
 - [x] Light/dark theme switching, persistence and readable green brand tokens retained
 - [x] Mobile menu, portfolio filters, Show More, project dialog, FAQ accordions and keyboard Escape behavior regression-checked

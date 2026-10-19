@@ -276,3 +276,26 @@ Completed:
 - Removed the Launch Signal Campaign portfolio card and its dedicated case-study dataset at the owner's request
 - Removed the generated campaign-board asset and all current documentation references
 - The `/work/launch-signal-campaign` route is no longer generated; the remaining Brand & Motion work is unaffected
+
+## Portfolio addition — Ash Blades live ecommerce website
+
+Completed:
+
+- Added Ash Blades to the Web Development portfolio with the accurate “Ecommerce Website” card label
+- Added a dedicated `/work/ash-blades-ecommerce` case study and verified live-site CTA
+- Documented only storefront features visible on the public site: categories, search, listings, galleries, descriptions, prices, wishlist, cart and purchase controls
+- Added the supplied product-detail, category and homepage screenshots as three optimized WebP assets totaling approximately 303 KB
+- Used the product-detail view as the card and case-study cover and added a responsive, lazy-loaded case-study gallery
+- Avoided sales, conversion, testimonial, custom-payment and unverified technology claims
+- Recorded the visible `Dashboard > Static Blocks > Topbar` top-bar content and `undefined...` category-filter labels as unresolved issues on the live storefront, not fixes made in this repository
+
+Verification completed:
+
+- `npm run lint`, `npm run typecheck` and `npm run build` all pass
+- Confirmed the Web Development filter shows Ash Blades with the accurate Ecommerce Website label
+- Confirmed the accessible project dialog, three-image keyboard gallery, Escape close and focus restoration
+- Confirmed `/work/ash-blades-ecommerce`, route metadata and the prominent live-site CTA to `https://ashblades.com/`
+- Checked desktop and 375 × 812 mobile layouts in dark and light themes
+- Confirmed below-the-fold gallery images remain lazy-loaded until approached, then load without broken assets
+- Confirmed no horizontal overflow and no browser console warnings or errors during the case-study checks
+- Confirmed the production build generates the Ash Blades case-study route and sitemap entry

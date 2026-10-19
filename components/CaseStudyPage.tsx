@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Layers3, ShieldCheck, Wrench } from "lucide-react";
+import { CheckCircle2, ExternalLink, Layers3, ShieldCheck, Wrench } from "lucide-react";
 import type { ReactNode } from "react";
 import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
@@ -16,12 +16,25 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
           <div aria-hidden="true" className="case-study-grid absolute inset-0" />
           <div aria-hidden="true" className="case-study-glow absolute -right-40 top-16 size-[32rem] rounded-full" />
           <Container className="relative">
-            <Link
-              href="/#portfolio"
-              className="inline-flex rounded-full border border-line-strong bg-panel/65 px-4 py-2 text-sm font-semibold text-muted transition-colors hover:border-accent/55 hover:text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >
-              Back to portfolio
-            </Link>
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <Link
+                href="/#portfolio"
+                className="inline-flex rounded-full border border-line-strong bg-panel/65 px-4 py-2 text-sm font-semibold text-muted transition-colors hover:border-accent/55 hover:text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              >
+                Back to portfolio
+              </Link>
+              {caseStudy.externalUrl ? (
+                <a
+                  href={caseStudy.externalUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-on-accent transition hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
+                >
+                  {caseStudy.externalLabel ?? "Visit Live Website"}
+                  <ExternalLink aria-hidden="true" size={16} />
+                </a>
+              ) : null}
+            </div>
 
             <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(19rem,0.55fr)] lg:items-end">
               <div>
@@ -228,11 +241,16 @@ function CaseStudyVisual({ caseStudy }: { caseStudy: CaseStudy }) {
             key={image.path}
             className="overflow-hidden rounded-3xl border border-line bg-panel shadow-[0_24px_70px_var(--surface-shadow)]"
           >
-            <div className="relative aspect-[941/1672] overflow-hidden bg-[#f7f8fa]">
+            <div
+              className={`relative overflow-hidden bg-[#f7f8fa] ${
+                image.aspect === "landscape" ? "aspect-[16/10]" : "aspect-[941/1672]"
+              }`}
+            >
               <Image
                 src={image.path}
                 alt={image.alt}
                 fill
+                loading="lazy"
                 sizes="(max-width: 767px) 100vw, 50vw"
                 className="object-contain"
               />

@@ -115,7 +115,7 @@ export function Portfolio() {
           />
 
           <p className="mx-auto mt-7 max-w-3xl text-center text-base leading-7 text-muted">
-            Each entry is labelled by its real status—concept demo, visual showcase, concept campaign or functional prototype.
+            Each entry is labelled by its real status—live website, concept demo, visual showcase, concept campaign or functional prototype.
           </p>
 
           <div
@@ -336,7 +336,7 @@ export function Portfolio() {
                         rel="noreferrer"
                         className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-3 text-sm font-semibold text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                       >
-                        Visit Project
+                        {selectedProject.externalLinkLabel ?? "Visit Project"}
                         <ExternalLink aria-hidden="true" size={16} />
                       </a>
                     ) : null}

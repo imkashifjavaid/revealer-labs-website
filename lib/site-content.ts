@@ -35,6 +35,7 @@ export type ProjectGalleryImage = {
   path: string;
   alt: string;
   caption: string;
+  aspect?: "portrait" | "landscape";
 };
 
 export type Project = {
@@ -48,7 +49,12 @@ export type Project = {
   previewPath: string;
   previewAlt: string;
   previewFit?: "cover" | "contain";
-  demoStatus: "Concept Demo" | "Visual Showcase" | "Concept Campaign" | "Functional Prototype";
+  demoStatus:
+    | "Concept Demo"
+    | "Visual Showcase"
+    | "Concept Campaign"
+    | "Functional Prototype"
+    | "Ecommerce Website";
   detailHeading?: string;
   tagHeading?: string;
   galleryImages?: ProjectGalleryImage[];
@@ -58,6 +64,7 @@ export type Project = {
   caseStudySlug?: string;
   caseStudyLinkLabel?: string;
   externalUrl?: string;
+  externalLinkLabel?: string;
 };
 
 export type CaseStudyVisualMode = "workflow" | "mobile" | "campaign" | "gallery";
@@ -107,6 +114,8 @@ export type CaseStudy = {
   proposedNextLabel?: string;
   proposedNextTitle?: string;
   metadataDescription?: string;
+  externalUrl?: string;
+  externalLabel?: string;
 };
 
 export type IndustryShowcase = {
@@ -202,6 +211,51 @@ export const services: Service[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    id: "ash-blades-ecommerce",
+    title: "Ash Blades",
+    category: "Web Development",
+    description:
+      "A live ecommerce storefront for swords, knives and cosplay collectibles, bringing category browsing, product imagery and detailed listings together in one shopping experience.",
+    summary:
+      "Ash Blades is a live online storefront where shoppers can browse collectible swords, knives and cosplay pieces through category pages, product listings and detailed purchase views.",
+    intendedFeatures: [
+      "Category navigation, search and product listings",
+      "Product image galleries, descriptions and prices",
+      "Wishlist, cart and visible purchase controls",
+    ],
+    technologies: ["Ecommerce", "Product Catalog", "Responsive Web"],
+    previewPath: "/case-studies/ash-blades/ash-blades-product-detail.webp",
+    previewAlt:
+      "Ash Blades live product page showing a collectible sword image gallery, price and purchase controls",
+    demoStatus: "Ecommerce Website",
+    detailHeading: "LIVE STOREFRONT FEATURES",
+    tagHeading: "EXPERIENCE",
+    galleryImages: [
+      {
+        path: "/case-studies/ash-blades/ash-blades-product-detail.webp",
+        alt: "Ash Blades product detail page showing a collectible sword gallery, description, price, cart and buy controls",
+        caption: "Product detail experience with imagery, price and purchase controls",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/ash-blades/ash-blades-swords-category.webp",
+        alt: "Ash Blades swords category page showing a collection grid, prices, sorting and visible incomplete filter labels",
+        caption: "Swords collection page with catalog browsing, pricing and sorting",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/ash-blades/ash-blades-home-storefront.webp",
+        alt: "Ash Blades home page showing best-selling products, new arrivals and recommended collectibles",
+        caption: "Homepage merchandising for best sellers, new arrivals and recommendations",
+        aspect: "landscape",
+      },
+    ],
+    caseStudySlug: "ash-blades-ecommerce",
+    caseStudyLinkLabel: "Read live website case study",
+    externalUrl: "https://ashblades.com/",
+    externalLinkLabel: "Visit Live Website",
+  },
   {
     id: "grow-counter-android",
     title: "Grow Counter",
@@ -447,6 +501,89 @@ export const projects: Project[] = [
 ];
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "ash-blades-ecommerce",
+    projectId: "ash-blades-ecommerce",
+    title: "Ash Blades — Ecommerce Storefront",
+    eyebrow: "LIVE ECOMMERCE WEBSITE",
+    summary:
+      "A live ecommerce storefront for swords, knives and cosplay collectibles, bringing category browsing, product imagery and detailed listings together in one shopping experience.",
+    problem:
+      "A broad catalog of fantasy, historical and cosplay collectibles needs clear paths from discovery to product detail. Shoppers need to move between themed categories, compare imagery and prices, and understand the available purchase controls without losing context.",
+    proposedSolution:
+      "Ash Blades brings that catalog into a single live storefront with category navigation, searchable product listings, collection views and detailed product pages. Visible shopping controls support wishlists, carts and purchase actions while product imagery and descriptions provide the detail needed for consideration.",
+    role: [
+      "Live ecommerce storefront delivery",
+      "Catalog and category presentation",
+      "Product-detail shopping experience",
+      "Responsive storefront presentation",
+    ],
+    tools: [
+      "Category navigation",
+      "Product search",
+      "Wishlist and cart",
+      "Product galleries and pricing",
+    ],
+    deliverables: [
+      "Published ecommerce website",
+      "Homepage merchandising sections",
+      "Category and product-listing pages",
+      "Product detail and purchase views",
+    ],
+    heroPath: "/case-studies/ash-blades/ash-blades-product-detail.webp",
+    heroAlt:
+      "Ash Blades live product page showing a collectible sword image gallery, price and purchase controls",
+    visualMode: "gallery",
+    visualFrames: [],
+    galleryImages: [
+      {
+        path: "/case-studies/ash-blades/ash-blades-product-detail.webp",
+        alt: "Ash Blades product detail page showing a collectible sword gallery, description, price, cart and buy controls",
+        caption: "Product detail experience with imagery, price and purchase controls",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/ash-blades/ash-blades-swords-category.webp",
+        alt: "Ash Blades swords category page showing a collection grid, prices, sorting and visible incomplete filter labels",
+        caption: "Swords collection page with catalog browsing, pricing and sorting",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/ash-blades/ash-blades-home-storefront.webp",
+        alt: "Ash Blades home page showing best-selling products, new arrivals and recommended collectibles",
+        caption: "Homepage merchandising for best sellers, new arrivals and recommendations",
+        aspect: "landscape",
+      },
+    ],
+    realNow:
+      "Ash Blades is live at ashblades.com. The public storefront currently exposes category navigation, search, product listings, image galleries, descriptions, prices, wishlist, cart and purchase controls.",
+    proposedNext:
+      "During the current review, the public site displayed ‘Dashboard > Static Blocks > Topbar’ in the top bar and ‘undefined...’ labels in category filters. These are live-storefront content or configuration issues and were not changed by this Revealer Labs portfolio update.",
+    statusLabel: "Live Website",
+    scopeTitle: "Live project status",
+    scopeCopy:
+      "This is a real, publicly accessible ecommerce website. The case study describes only visible storefront behavior and does not claim sales results, conversion improvements, custom payment engineering or an unverified technology stack.",
+    solutionTitle: "The storefront experience",
+    contributionEyebrow: "Website scope",
+    contributionTitle: "A live catalog and shopping experience",
+    roleTitle: "Project scope",
+    toolsTitle: "Visible storefront systems",
+    deliverablesTitle: "Published experience",
+    visualEyebrow: "Live website screens",
+    visualTitle: "From browsing to product detail",
+    visualDescription:
+      "These screenshots were captured from the live public website and show the homepage, a swords category and a product detail page. Individual franchise artwork and product imagery remain part of the storefront content and are not presented as original Revealer Labs artwork.",
+    heroCaptionPrimary: "Live product-detail page",
+    heroCaptionSecondary: "Public storefront screenshot · 19 October 2026",
+    realNowLabel: "LIVE NOW",
+    realNowTitle: "What is publicly available",
+    proposedNextLabel: "LIVE-SITE NOTE",
+    proposedNextTitle: "Visible issues to address",
+    metadataDescription:
+      "Ash Blades is a live ecommerce storefront for swords, knives and cosplay collectibles, presented as a Revealer Labs web-development case study.",
+    externalUrl: "https://ashblades.com/",
+    externalLabel: "Visit Live Website",
+  },
   {
     slug: "grow-counter-android",
     projectId: "grow-counter-android",

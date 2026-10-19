@@ -61,9 +61,9 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 - FAQ group and question content is data-driven. Edit or add typed entries in the `faqGroups` export in `lib/site-content.ts`.
 - The privacy and terms routes are clearly marked drafts. Replace every `[REVIEW REQUIRED: ...]` marker and obtain appropriate legal review before publication.
 
-## Portfolio concepts
+## Portfolio content
 
-Portfolio entries are clearly labelled as concept demos, visual showcases, concept campaigns or functional prototypes. Each project record includes its category, summary, supporting notes, tags, preview path, status and optional gallery, self-hosted video, case-study or external-link fields. External links render only when a real URL is provided.
+Portfolio entries are clearly labelled as live websites, concept demos, visual showcases, concept campaigns or functional prototypes. Each project record includes its category, summary, supporting notes, tags, preview path, status and optional gallery, self-hosted video, case-study or external-link fields. External links render only when a real URL is provided.
 
 The Driving Game Scene visual showcase uses three user-supplied older Unity renders stored under `public/portfolio/driving-game-scene-unity/`. The copied PNG bytes are unchanged. The entry does not claim authorship of individual vehicle or environment assets, and the owner's exact contribution and underlying asset-licensing details remain to be documented before the images are licensed or reused outside this portfolio context.
 
@@ -71,8 +71,9 @@ Industry showcases also include an optional `videoPath`. Until owned video is av
 
 ## Case studies
 
-Three portfolio entries link to dedicated pages under `/work/[slug]`:
+Four portfolio entries link to dedicated pages under `/work/[slug]`:
 
+- Ash Blades live ecommerce storefront
 - Grow Counter functional Android prototype
 - AI work-order automation
 - Orbital Courier mobile-game prototype
@@ -80,6 +81,8 @@ Three portfolio entries link to dedicated pages under `/work/[slug]`:
 The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Concept entries separate original material from proposed implementation, tools, production and outcomes. Grow Counter is identified as a functional prototype with remaining device validation.
 
 Grow Counter uses ten supplied product visuals stored as optimized WebP files under `public/portfolio/grow-counter/`. The case study documents version 2.5 as a packaged Android prototype, not a public store release.
+
+Ash Blades uses three optimized screenshots under `public/case-studies/ash-blades/` and links to the verified live storefront at `https://ashblades.com/`. The case study describes visible catalog, search, wishlist, cart and purchase controls without claiming sales results, conversion changes, custom payment engineering or an unverified technology stack. The reviewed live site currently exposes `Dashboard > Static Blocks > Topbar` in its top bar and `undefined...` labels in category filters; those storefront issues are documented but are not changed by this portfolio repository.
 
 Real contact delivery remains inactive until the four contact-delivery environment values above are configured. No contact address is displayed publicly.
 
