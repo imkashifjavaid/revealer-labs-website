@@ -1,6 +1,6 @@
 # Revealer Labs website
 
-A responsive agency website for Revealer Labs, covering services, portfolio concepts, detailed concept case studies, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
+A responsive agency website for Revealer Labs, covering services, portfolio concepts and product work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
 
 ## Local setup
 
@@ -63,21 +63,23 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 
 ## Portfolio concepts
 
-The portfolio entries are clearly labelled as concept demos, visual showcases or concept campaigns. Each project record includes its category, summary, supporting notes, tags, preview path, status and optional gallery, self-hosted video, case-study or external-link fields. External links render only when a real URL is provided.
+Portfolio entries are clearly labelled as concept demos, visual showcases, concept campaigns or functional prototypes. Each project record includes its category, summary, supporting notes, tags, preview path, status and optional gallery, self-hosted video, case-study or external-link fields. External links render only when a real URL is provided.
 
 The Driving Game Scene visual showcase uses three user-supplied older Unity renders stored under `public/portfolio/driving-game-scene-unity/`. The copied PNG bytes are unchanged. The entry does not claim authorship of individual vehicle or environment assets, and the owner's exact contribution and underlying asset-licensing details remain to be documented before the images are licensed or reused outside this portfolio context.
 
 Industry showcases also include an optional `videoPath`. Until owned video is available, the local SVG preview is shown.
 
-## Concept case studies
+## Case studies
 
 Three portfolio entries link to dedicated pages under `/work/[slug]`:
 
+- Grow Counter functional Android prototype
 - AI work-order automation
 - Orbital Courier mobile-game prototype
-- Launch Signal motion and creator-style campaign
 
-The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Each entry separates original concept material from proposed implementation, tools, production and outcomes. The campaign board is an original generated asset created for this website; it does not represent a client, working product or live campaign.
+The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Concept entries separate original material from proposed implementation, tools, production and outcomes. Grow Counter is identified as a functional prototype with remaining device validation.
+
+Grow Counter uses ten supplied product visuals stored as optimized WebP files under `public/portfolio/grow-counter/`. The case study documents version 2.5 as a packaged Android prototype, not a public store release.
 
 Real contact delivery remains inactive until the four contact-delivery environment values above are configured. No contact address is displayed publicly.
 

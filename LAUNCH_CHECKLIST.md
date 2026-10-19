@@ -41,7 +41,7 @@ Never enable the mock adapter in production. A mock acceptance is not evidence t
 - [ ] Confirm HTTPS on the final host before enabling a long-lived HSTS policy
 - [ ] Run Lighthouse or an equivalent lab audit against the deployed production URL and begin collecting real Core Web Vitals; local browser checks are not field performance data
 
-The concept portfolio and case studies are not a blocker because they are visibly and repeatedly labelled as illustrative concept work. Replace them with approved client material when available.
+Concept portfolio entries remain visibly labelled as illustrative work. Grow Counter is separately labelled as a functional prototype with its remaining device-validation limitation. Replace concept entries with approved client material when available.
 
 ## Required production environment values
 

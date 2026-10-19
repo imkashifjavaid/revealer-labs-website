@@ -107,7 +107,7 @@ Completed:
 - Prominent Concept Demo and honest-scope language with explicit real-versus-proposed summaries
 - Data-driven case-study content and replaceable local media paths in `lib/site-content.ts`
 - Existing Flowline Ops and Orbital Courier cards connected to their case studies
-- New Brand & Motion portfolio category and Launch Signal campaign concept
+- Brand & Motion portfolio category introduced for campaign work
 - Case-study links in both portfolio cards and accessible project dialogs
 - Original campaign-board artwork with no client identity, claim, testimonial or demo link
 - Shared Revealer Labs dark/light palette across the case studies and main site
@@ -239,3 +239,40 @@ Details still needed from the owner:
 - Confirmation of the exact production roles beyond the stated Revealer Labs concept creation
 - An approved transcript if captions should be added
 - Confirmation that the supplied performer, product imagery, music/audio and other included media are cleared for public portfolio use
+
+## Portfolio addition — Grow Counter Android prototype
+
+Completed:
+
+- Added Grow Counter as a Mobile Apps portfolio entry and labelled it “Functional Prototype”
+- Added a dedicated `/work/grow-counter-android` case-study route with product-specific metadata
+- Documented the implemented counting, tree-growth, garden, bilingual, personalization, history, reminder and offline-storage features
+- Kept version 2.5, packaged APK and signature verification separate from the remaining full Android device-validation requirement
+- Added ten supplied product visuals with descriptive alternative text and captions
+- Converted the 17.9 MB PNG source set into ten full-resolution WebP assets totaling approximately 1.67 MB
+- Extended the shared case-study component so functional products can use accurate status, scope, implementation and validation labels without weakening the existing concept disclosures
+- Added Mobile Apps filtering while preserving the existing Show More and project-dialog behavior
+
+Verification completed:
+
+- `npm run lint`, `npm run typecheck` and `npm run build` all pass
+- Confirmed the Mobile Apps filter shows the single Grow Counter entry and resets the visible result count correctly
+- Confirmed the project dialog opens, exposes the accurate Functional Prototype status and product case-study link, closes with Escape and restores focus to its trigger
+- Checked the dedicated case study at desktop and 375 × 812 mobile widths in both dark and light themes
+- Confirmed the mobile menu, theme toggle, ten gallery images, descriptive image alternatives and page metadata in the browser
+- Confirmed all ten gallery images load without broken assets after lazy loading, no horizontal overflow is present and the browser console is clean
+- Confirmed the production build generates `/work/grow-counter-android` and includes it in the generated sitemap
+
+Details still needed from the owner:
+
+- Confirmation that the ten supplied promotional visuals are approved for public portfolio use
+- Final physical-device validation results for the latest interface changes
+- A public store or download URL only if one is intentionally released later; no link is currently shown
+
+## Portfolio removal — Launch Signal Campaign
+
+Completed:
+
+- Removed the Launch Signal Campaign portfolio card and its dedicated case-study dataset at the owner's request
+- Removed the generated campaign-board asset and all current documentation references
+- The `/work/launch-signal-campaign` route is no longer generated; the remaining Brand & Motion work is unaffected

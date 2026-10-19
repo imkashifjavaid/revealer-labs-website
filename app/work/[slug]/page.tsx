@@ -19,7 +19,9 @@ export async function generateMetadata({ params }: CaseStudyRouteProps): Promise
     return { title: "Concept Case Study" };
   }
 
-  const description = `${caseStudy.summary} Concept demo; not completed client work.`;
+  const description =
+    caseStudy.metadataDescription ??
+    `${caseStudy.summary} Concept demo; not completed client work.`;
 
   return {
     title: caseStudy.title,

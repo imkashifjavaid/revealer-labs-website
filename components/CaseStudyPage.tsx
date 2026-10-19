@@ -27,7 +27,7 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
               <div>
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="rounded-full border border-accent/35 bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-ink">
-                    Concept Demo
+                    {caseStudy.statusLabel ?? "Concept Demo"}
                   </span>
                   <span className="text-xs font-semibold tracking-[0.16em] text-subtle">
                     {caseStudy.eyebrow}
@@ -44,28 +44,40 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
               <aside className="rounded-3xl border border-accent/25 bg-accent/[0.07] p-6 sm:p-7">
                 <div className="flex items-center gap-3 text-accent-ink">
                   <ShieldCheck aria-hidden="true" size={21} />
-                  <h2 className="text-sm font-bold uppercase tracking-[0.12em]">Honest scope</h2>
+                  <h2 className="text-sm font-bold uppercase tracking-[0.12em]">
+                    {caseStudy.scopeTitle ?? "Honest scope"}
+                  </h2>
                 </div>
                 <p className="mt-4 text-sm leading-7 text-muted">
-                  This is an illustrative Revealer Labs concept—not completed client work. Features, production and outcomes are described as proposed.
+                  {caseStudy.scopeCopy ??
+                    "This is an illustrative Revealer Labs concept—not completed client work. Features, production and outcomes are described as proposed."}
                 </p>
               </aside>
             </div>
 
             <div className="mt-12 overflow-hidden rounded-[2rem] border border-line-strong bg-panel shadow-[0_35px_100px_var(--surface-shadow)] sm:mt-16">
-              <div className="relative aspect-[16/10] sm:aspect-[16/8.5]">
+              <div
+                className={`relative ${
+                  caseStudy.heroFit === "contain"
+                    ? "aspect-[4/5] bg-panel-soft sm:aspect-[16/10]"
+                    : "aspect-[16/10] sm:aspect-[16/8.5]"
+                }`}
+              >
                 <Image
                   src={caseStudy.heroPath}
                   alt={caseStudy.heroAlt}
                   fill
-                  priority
+                  loading="eager"
                   sizes="(max-width: 1280px) 100vw, 1200px"
-                  className="object-cover"
+                  className={caseStudy.heroFit === "contain" ? "object-contain" : "object-cover"}
                 />
               </div>
               <div className="flex flex-col gap-3 border-t border-line px-5 py-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-7">
-                <span>Original concept visual</span>
-                <span>No client identity, live product or performance result is represented.</span>
+                <span>{caseStudy.heroCaptionPrimary ?? "Original concept visual"}</span>
+                <span>
+                  {caseStudy.heroCaptionSecondary ??
+                    "No client identity, live product or performance result is represented."}
+                </span>
               </div>
             </div>
           </Container>
@@ -74,25 +86,39 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
         <section className="border-y border-line bg-panel-soft/55 py-20 sm:py-24">
           <Container className="grid gap-6 lg:grid-cols-2">
             <NarrativeBlock number="01" title="The problem" copy={caseStudy.problem} />
-            <NarrativeBlock number="02" title="Proposed solution" copy={caseStudy.proposedSolution} />
+            <NarrativeBlock
+              number="02"
+              title={caseStudy.solutionTitle ?? "Proposed solution"}
+              copy={caseStudy.proposedSolution}
+            />
           </Container>
         </section>
 
         <section className="py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">Concept contribution</p>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">
+                {caseStudy.contributionEyebrow ?? "Concept contribution"}
+              </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-content sm:text-5xl">
-                What the study includes
+                {caseStudy.contributionTitle ?? "What the study includes"}
               </h2>
             </div>
 
             <div className="mt-12 grid gap-5 lg:grid-cols-3">
-              <DetailList icon={<Layers3 aria-hidden="true" size={22} />} title="My role" items={caseStudy.role} />
-              <DetailList icon={<Wrench aria-hidden="true" size={22} />} title="Proposed tools" items={caseStudy.tools} />
+              <DetailList
+                icon={<Layers3 aria-hidden="true" size={22} />}
+                title={caseStudy.roleTitle ?? "My role"}
+                items={caseStudy.role}
+              />
+              <DetailList
+                icon={<Wrench aria-hidden="true" size={22} />}
+                title={caseStudy.toolsTitle ?? "Proposed tools"}
+                items={caseStudy.tools}
+              />
               <DetailList
                 icon={<CheckCircle2 aria-hidden="true" size={22} />}
-                title="Concept deliverables"
+                title={caseStudy.deliverablesTitle ?? "Concept deliverables"}
                 items={caseStudy.deliverables}
               />
             </div>
@@ -102,12 +128,15 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
         <section className="border-y border-line bg-panel-soft/55 py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">Visual direction</p>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">
+                {caseStudy.visualEyebrow ?? "Visual direction"}
+              </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-content sm:text-5xl">
-                A system, not a single screen
+                {caseStudy.visualTitle ?? "A system, not a single screen"}
               </h2>
               <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
-                These frames explain the intended experience and production direction. They are portfolio concept artifacts, not evidence of a launched product or campaign.
+                {caseStudy.visualDescription ??
+                  "These frames explain the intended experience and production direction. They are portfolio concept artifacts, not evidence of a launched product or campaign."}
               </p>
             </div>
 
@@ -118,8 +147,17 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
         <section className="py-20 sm:py-28">
           <Container>
             <div className="grid overflow-hidden rounded-[2rem] border border-line-strong bg-panel lg:grid-cols-2">
-              <RealityBlock label="REAL NOW" title="What exists" copy={caseStudy.realNow} />
-              <RealityBlock label="PROPOSED NEXT" title="What remains illustrative" copy={caseStudy.proposedNext} bordered />
+              <RealityBlock
+                label={caseStudy.realNowLabel ?? "REAL NOW"}
+                title={caseStudy.realNowTitle ?? "What exists"}
+                copy={caseStudy.realNow}
+              />
+              <RealityBlock
+                label={caseStudy.proposedNextLabel ?? "PROPOSED NEXT"}
+                title={caseStudy.proposedNextTitle ?? "What remains illustrative"}
+                copy={caseStudy.proposedNext}
+                bordered
+              />
             </div>
 
             <div className="mt-16 flex flex-col items-start justify-between gap-8 rounded-[2rem] border border-accent/25 bg-accent/[0.07] p-7 sm:p-10 lg:flex-row lg:items-center">
@@ -182,6 +220,35 @@ function DetailList({
 }
 
 function CaseStudyVisual({ caseStudy }: { caseStudy: CaseStudy }) {
+  if (caseStudy.visualMode === "gallery" && caseStudy.galleryImages?.length) {
+    return (
+      <div className="mt-12 grid gap-5 md:grid-cols-2">
+        {caseStudy.galleryImages.map((image, index) => (
+          <figure
+            key={image.path}
+            className="overflow-hidden rounded-3xl border border-line bg-panel shadow-[0_24px_70px_var(--surface-shadow)]"
+          >
+            <div className="relative aspect-[941/1672] overflow-hidden bg-[#f7f8fa]">
+              <Image
+                src={image.path}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 767px) 100vw, 50vw"
+                className="object-contain"
+              />
+            </div>
+            <figcaption className="flex items-start gap-4 border-t border-line px-5 py-4 text-sm leading-6 text-muted sm:px-6">
+              <span className="grid size-7 shrink-0 place-items-center rounded-full border border-accent/25 bg-accent/10 text-xs font-bold text-accent-ink">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span>{image.caption}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    );
+  }
+
   if (caseStudy.visualMode === "campaign") {
     return (
       <div className="mt-12 grid gap-5 md:grid-cols-3">

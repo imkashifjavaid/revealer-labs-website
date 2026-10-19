@@ -23,6 +23,7 @@ export type Service = {
 export const projectCategories = [
   "All",
   "Web Development",
+  "Mobile Apps",
   "AI & Automation",
   "Game Development",
   "Brand & Motion",
@@ -47,7 +48,7 @@ export type Project = {
   previewPath: string;
   previewAlt: string;
   previewFit?: "cover" | "contain";
-  demoStatus: "Concept Demo" | "Visual Showcase" | "Concept Campaign";
+  demoStatus: "Concept Demo" | "Visual Showcase" | "Concept Campaign" | "Functional Prototype";
   detailHeading?: string;
   tagHeading?: string;
   galleryImages?: ProjectGalleryImage[];
@@ -55,10 +56,11 @@ export type Project = {
   videoPosterPath?: string;
   videoLabel?: string;
   caseStudySlug?: string;
+  caseStudyLinkLabel?: string;
   externalUrl?: string;
 };
 
-export type CaseStudyVisualMode = "workflow" | "mobile" | "campaign";
+export type CaseStudyVisualMode = "workflow" | "mobile" | "campaign" | "gallery";
 
 export type CaseStudyVisualFrame = {
   label: string;
@@ -80,10 +82,31 @@ export type CaseStudy = {
   deliverables: string[];
   heroPath: string;
   heroAlt: string;
+  heroFit?: "cover" | "contain";
   visualMode: CaseStudyVisualMode;
   visualFrames: CaseStudyVisualFrame[];
+  galleryImages?: ProjectGalleryImage[];
   realNow: string;
   proposedNext: string;
+  statusLabel?: string;
+  scopeTitle?: string;
+  scopeCopy?: string;
+  solutionTitle?: string;
+  contributionEyebrow?: string;
+  contributionTitle?: string;
+  roleTitle?: string;
+  toolsTitle?: string;
+  deliverablesTitle?: string;
+  visualEyebrow?: string;
+  visualTitle?: string;
+  visualDescription?: string;
+  heroCaptionPrimary?: string;
+  heroCaptionSecondary?: string;
+  realNowLabel?: string;
+  realNowTitle?: string;
+  proposedNextLabel?: string;
+  proposedNextTitle?: string;
+  metadataDescription?: string;
 };
 
 export type IndustryShowcase = {
@@ -179,6 +202,30 @@ export const services: Service[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    id: "grow-counter-android",
+    title: "Grow Counter",
+    category: "Mobile Apps",
+    description:
+      "A native Android counter that turns repeated actions into tree growth and a personal garden.",
+    summary:
+      "A functional Revealer Labs Android prototype for dhikr, personal routines and everyday counting, combining multiple counters, offline progress, bilingual layouts and a garden that grows with consistent use.",
+    intendedFeatures: [
+      "Multiple counters with daily goals, reminders and history",
+      "Tree-growth stages and a persistent personal garden",
+      "English and Arabic layouts with offline local storage",
+    ],
+    technologies: ["Java", "Android Views", "Offline-first"],
+    previewPath: "/portfolio/grow-counter/count-and-grow-moonlit-garden.webp",
+    previewAlt:
+      "Grow Counter promotional screen showing a moonlit garden, a mature tree and a 2,500-count total on an Android phone",
+    previewFit: "contain",
+    demoStatus: "Functional Prototype",
+    detailHeading: "CURRENT BUILD",
+    tagHeading: "IMPLEMENTATION",
+    caseStudySlug: "grow-counter-android",
+    caseStudyLinkLabel: "Read product case study",
+  },
   {
     id: "meridian-commerce",
     title: "Meridian Commerce",
@@ -373,26 +420,6 @@ export const projects: Project[] = [
     caseStudySlug: "orbital-courier-mobile-prototype",
   },
   {
-    id: "launch-signal-campaign",
-    title: "Launch Signal Campaign",
-    category: "Brand & Motion",
-    description:
-      "A motion-led campaign concept combining polished product moments with creator-style vertical ads.",
-    summary:
-      "An original campaign study exploring how one product story could adapt across cinematic motion, practical demonstrations and short vertical ad formats without presenting the work as a live client campaign.",
-    intendedFeatures: [
-      "Proposed modular campaign art direction",
-      "Proposed motion and vertical-video storyboards",
-      "Proposed creator-style production brief",
-    ],
-    technologies: ["Creative Direction", "Motion Storyboard", "Vertical Video"],
-    previewPath: "/case-studies/launch-signal-campaign.png",
-    previewAlt:
-      "Original concept campaign board showing a desk light in product, creator-demo and motion frames",
-    demoStatus: "Concept Demo",
-    caseStudySlug: "launch-signal-campaign",
-  },
-  {
     id: "naseem-perfume-ad-concept",
     title: "Naseem — Perfume Ad Concept",
     category: "Brand & Motion",
@@ -420,6 +447,122 @@ export const projects: Project[] = [
 ];
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "grow-counter-android",
+    projectId: "grow-counter-android",
+    title: "Grow Counter",
+    eyebrow: "ANDROID PRODUCT DEVELOPMENT",
+    summary:
+      "A native Android counter that connects small repeated actions with visible progress: every 500 counts advances a tree, and every completed tree becomes part of a personal garden.",
+    problem:
+      "Most counter apps reduce progress to a number. That works functionally, but it gives people little sense of momentum across a daily practice or long-running routine. Grow Counter explores how a direct one-tap utility can stay simple while making consistency feel tangible.",
+    proposedSolution:
+      "Pair independent counters with a calm growth system. Each counter keeps its own lifetime total, daily history and active tree. Progress moves from seed to mature tree at fixed 500-count stages; at 3,000 counts, the completed tree joins the garden and a new seed begins.",
+    role: [
+      "Product concept and interaction design",
+      "Artwork direction and layered scene integration",
+      "Native Android implementation in Java",
+      "Iterative refinement and automated validation",
+    ],
+    tools: [
+      "Java",
+      "Android Views",
+      "Custom Canvas rendering",
+      "SharedPreferences and JSON",
+      "SoundPool",
+      "Android notifications",
+    ],
+    deliverables: [
+      "Functional Android prototype",
+      "Packaged and signature-verified APK",
+      "English and Arabic interfaces",
+      "Offline storage and JSON backup flow",
+    ],
+    heroPath: "/portfolio/grow-counter/count-and-grow-moonlit-garden.webp",
+    heroAlt:
+      "Grow Counter product presentation showing a mature oak tree in a moonlit garden and the main counting controls",
+    heroFit: "contain",
+    visualMode: "gallery",
+    visualFrames: [],
+    galleryImages: [
+      {
+        path: "/portfolio/grow-counter/count-and-grow-moonlit-garden.webp",
+        alt: "Grow Counter main screen with a mature oak tree, moonlit garden and a 2,500-count total",
+        caption: "Core counting view with visible tree-growth progress",
+      },
+      {
+        path: "/portfolio/grow-counter/garden-taking-root.webp",
+        alt: "Grow Counter garden containing oak, date palm, cherry blossom and pine trees at night",
+        caption: "Personal garden collecting completed trees",
+      },
+      {
+        path: "/portfolio/grow-counter/personalized-dhikr-counters.webp",
+        alt: "Grow Counter list of personalised Arabic dhikr counters with individual totals and daily progress",
+        caption: "Independent counters with phrases, totals and daily goals",
+      },
+      {
+        path: "/portfolio/grow-counter/settings-night-scenery.webp",
+        alt: "Grow Counter settings screen with night scenery, theme, language and sound controls",
+        caption: "Appearance, scenery, language and sound settings",
+      },
+      {
+        path: "/portfolio/grow-counter/accent-colour-picker.webp",
+        alt: "Grow Counter accent colour dialog with a colour wheel, brightness slider and presets",
+        caption: "Custom accent colour and brightness controls",
+      },
+      {
+        path: "/portfolio/grow-counter/daily-goal-reminders.webp",
+        alt: "Grow Counter daily goal and count reminder dialog over the main counter screen",
+        caption: "Daily goals and configurable count reminders",
+      },
+      {
+        path: "/portfolio/grow-counter/count-history.webp",
+        alt: "Grow Counter history screen with daily, weekly and lifetime totals plus a seven-day chart",
+        caption: "Daily history, weekly totals and lifetime progress",
+      },
+      {
+        path: "/portfolio/grow-counter/arabic-dhikr-counter.webp",
+        alt: "Grow Counter Arabic right-to-left interface showing a dhikr counter and garden scene",
+        caption: "Arabic interface with right-to-left layout and localized numerals",
+      },
+      {
+        path: "/portfolio/grow-counter/garden-tree-collection.webp",
+        alt: "Grow Counter daylight garden showing four labelled tree varieties",
+        caption: "Garden navigation and four initially available tree varieties",
+      },
+      {
+        path: "/portfolio/grow-counter/settings-controls.webp",
+        alt: "Grow Counter settings screen showing appearance, sound, touch and routine controls",
+        caption: "Detailed controls for counting sessions and personal preferences",
+      },
+    ],
+    realNow:
+      "Version 2.5 is a functional native Android prototype with a packaged, signature-verified APK. Core counting, tree growth, gardens, bilingual layouts, local history, backup, themes, sound, reminders and automated checks are implemented.",
+    proposedNext:
+      "The latest interface changes still need complete validation across physical Android devices. Public distribution, broader device coverage and release operations are not presented as completed.",
+    statusLabel: "Functional Prototype",
+    scopeTitle: "Current build status",
+    scopeCopy:
+      "This is a Revealer Labs personal product prototype—not a released Play Store listing or client project. The packaged APK exists, while the latest interface changes still require complete Android device validation.",
+    solutionTitle: "The product approach",
+    contributionEyebrow: "Product development",
+    contributionTitle: "Designed and built by Revealer Labs",
+    roleTitle: "Contribution",
+    toolsTitle: "Implementation",
+    deliverablesTitle: "Current deliverables",
+    visualEyebrow: "Product screens",
+    visualTitle: "A counter that makes progress visible",
+    visualDescription:
+      "These supplied product visuals show the implemented counter, garden, personalization, history and bilingual interface direction. They document the prototype presentation; they are not a store listing or evidence of public release.",
+    heroCaptionPrimary: "Functional Android prototype · Version 2.5",
+    heroCaptionSecondary: "Packaged APK; complete device validation remains",
+    realNowLabel: "FUNCTIONAL NOW",
+    realNowTitle: "What exists",
+    proposedNextLabel: "VALIDATION NEXT",
+    proposedNextTitle: "What remains",
+    metadataDescription:
+      "Grow Counter is a functional native Android prototype by Revealer Labs, combining offline counters, tree-growth progress, a personal garden and English/Arabic support.",
+  },
   {
     slug: "ai-work-order-automation",
     projectId: "flowline-ops",
@@ -517,59 +660,6 @@ export const caseStudies: CaseStudy[] = [
       "The gameplay premise, interaction direction and local space-scene artwork are original concept materials.",
     proposedNext:
       "A playable Unity build, device profiling, audio, progression balancing and user testing remain proposed and have not been presented as completed work.",
-  },
-  {
-    slug: "launch-signal-campaign",
-    projectId: "launch-signal-campaign",
-    title: "Launch Signal: Motion Campaign",
-    eyebrow: "BRAND CAMPAIGN CONCEPT",
-    summary:
-      "An original campaign system showing how one product story could move between a controlled hero film, useful creator-style demonstrations and short vertical ad cuts.",
-    problem:
-      "Campaigns can lose consistency when polished brand footage and creator-led content are planned separately. The audience sees different promises, visual rules and calls to action instead of one adaptable idea.",
-    proposedSolution:
-      "Build a shared visual and message system first, then express it through three formats: a product reveal, a hands-on creator demonstration and a motion-led feature sequence. Each execution keeps the same core product truth while changing pace and framing for its channel.",
-    role: [
-      "Campaign concept and creative system",
-      "Motion storyboard direction",
-      "Vertical-ad format planning",
-      "Original visual prototyping",
-    ],
-    tools: ["Creative direction", "Figma-style layout planning", "Motion storyboard", "Vertical edit plan"],
-    deliverables: [
-      "Campaign visual direction",
-      "Three-format storyboard set",
-      "Creator-shot brief",
-      "Motion and edit notes",
-    ],
-    heroPath: "/case-studies/launch-signal-campaign.png",
-    heroAlt:
-      "Original campaign concept showing product photography, a hands-on creator demonstration and a motion sequence",
-    visualMode: "campaign",
-    visualFrames: [
-      {
-        label: "HERO FILM",
-        title: "Product reveal",
-        description: "A controlled opening that establishes the object, material and core movement.",
-        imagePosition: "left",
-      },
-      {
-        label: "CREATOR CUT",
-        title: "Hands-on demonstration",
-        description: "A direct vertical-format example focused on setup and practical use.",
-        imagePosition: "center",
-      },
-      {
-        label: "MOTION CUT",
-        title: "Feature in motion",
-        description: "A graphic sequence that turns adjustability into a clear visual beat.",
-        imagePosition: "right",
-      },
-    ],
-    realNow:
-      "The campaign structure, written direction and generated product imagery are original concept assets created for this portfolio study.",
-    proposedNext:
-      "Filming, creator casting, editing, media placement, live campaign delivery and performance results are placeholders for a future real engagement.",
   },
 ];
 

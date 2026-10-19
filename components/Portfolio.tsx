@@ -115,7 +115,7 @@ export function Portfolio() {
           />
 
           <p className="mx-auto mt-7 max-w-3xl text-center text-base leading-7 text-muted">
-            Each entry is labelled as a concept demo, visual showcase or concept campaign; completed client work will be added when approved.
+            Each entry is labelled by its real status—concept demo, visual showcase, concept campaign or functional prototype.
           </p>
 
           <div
@@ -200,7 +200,7 @@ export function Portfolio() {
                       className="relative z-20 mt-6 inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-4 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:border-accent/65 hover:bg-accent/15 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent"
                     >
                       <BookOpenText aria-hidden="true" size={16} />
-                      Read concept case study
+                      {project.caseStudyLinkLabel ?? "Read concept case study"}
                     </Link>
                   ) : null}
                 </div>
@@ -326,7 +326,7 @@ export function Portfolio() {
                         className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
                       >
                         <BookOpenText aria-hidden="true" size={16} />
-                        Read concept case study
+                        {selectedProject.caseStudyLinkLabel ?? "Read concept case study"}
                       </Link>
                     ) : null}
                     {selectedProject.externalUrl ? (
