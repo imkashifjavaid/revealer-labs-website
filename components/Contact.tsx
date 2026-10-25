@@ -25,7 +25,7 @@ export function Contact() {
               </p>
               <div className="mt-8 flex max-w-md items-start gap-3 rounded-2xl border border-line bg-canvas/45 p-4 text-sm leading-6 text-muted backdrop-blur">
                 <ShieldCheck aria-hidden="true" className="mt-0.5 shrink-0 text-accent-ink" size={18} />
-                Online enquiries open only when delivery is verified. Otherwise, this section shows a confirmed email path or an honest availability notice.
+                Online form enquiries open only when delivery is verified. Until then, this section shows confirmed direct contact options or an honest availability notice.
               </div>
             </div>
 

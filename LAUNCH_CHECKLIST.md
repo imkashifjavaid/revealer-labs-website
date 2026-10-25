@@ -55,6 +55,7 @@ RESEND_API_KEY=replace-with-a-live-resend-api-key
 CONTACT_TO_EMAIL=replace-with-the-confirmed-recipient
 CONTACT_FROM_EMAIL=Revealer Labs <replace-with-a-sender-on-a-verified-domain>
 CONTACT_PUBLIC_EMAIL=replace-with-a-confirmed-public-address-if-using-the-email-fallback
+CONTACT_PUBLIC_WHATSAPP=+15551234567
 ```
 
 Value requirements:
@@ -65,6 +66,7 @@ Value requirements:
 - `CONTACT_TO_EMAIL`: confirmed inbox that should receive project enquiries
 - `CONTACT_FROM_EMAIL`: display name and sender address accepted by the verified Resend domain
 - `CONTACT_PUBLIC_EMAIL`: optional public `mailto:` fallback; omit it when the address must not be published
+- `CONTACT_PUBLIC_WHATSAPP`: optional public WhatsApp fallback in E.164 form, including `+` and country code; omit it when the number must not be published
 
 The following variables are for local testing only and must be absent in production:
 

@@ -19,8 +19,17 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export type ContactAvailability =
   | { mode: "form" }
-  | { mode: "email"; email: string }
+  | { mode: "direct"; email?: string; whatsapp?: string }
   | { mode: "unavailable" };
+
+function normalizePublicWhatsApp(value: string | undefined) {
+  if (!value) return undefined;
+
+  const normalized = value.trim().replace(/[\s()-]/g, "");
+  return /^\+[1-9]\d{7,14}$/.test(normalized)
+    ? normalized.slice(1)
+    : undefined;
+}
 
 export function getContactAvailability(
   environment: NodeJS.ProcessEnv = process.env,
@@ -38,8 +47,13 @@ export function getContactAvailability(
   }
 
   const publicEmail = environment.CONTACT_PUBLIC_EMAIL?.trim();
-  if (publicEmail && publicEmail.length <= 254 && emailPattern.test(publicEmail)) {
-    return { mode: "email", email: publicEmail };
+  const email = publicEmail && publicEmail.length <= 254 && emailPattern.test(publicEmail)
+    ? publicEmail
+    : undefined;
+  const whatsapp = normalizePublicWhatsApp(environment.CONTACT_PUBLIC_WHATSAPP);
+
+  if (email || whatsapp) {
+    return { mode: "direct", email, whatsapp };
   }
 
   return { mode: "unavailable" };

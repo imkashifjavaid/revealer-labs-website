@@ -37,6 +37,7 @@ RESEND_API_KEY=your_resend_api_key
 CONTACT_TO_EMAIL=your_confirmed_recipient_address
 CONTACT_FROM_EMAIL=Revealer Labs <enquiries@your_verified_domain>
 CONTACT_PUBLIC_EMAIL=your_confirmed_public_contact_address
+CONTACT_PUBLIC_WHATSAPP=+15551234567
 ```
 
 `SITE_URL` is the public production origin used for canonical metadata,
@@ -47,11 +48,12 @@ query string or fragment.
 
 The contact section checks `/api/contact` before exposing a submission path.
 It shows the form only when the complete Resend configuration is available. If
-delivery is unavailable and `CONTACT_PUBLIC_EMAIL` contains a confirmed public
-address, it shows an honest email CTA instead. With neither path configured, it
+delivery is unavailable and either public fallback contains a confirmed value,
+it shows honest email and/or WhatsApp CTAs instead. With no path configured, it
 shows a non-submitting availability notice rather than a broken form.
-`CONTACT_PUBLIC_EMAIL` is returned to the browser intentionally only while the
-email CTA is active.
+`CONTACT_PUBLIC_EMAIL` and `CONTACT_PUBLIC_WHATSAPP` are returned to the browser
+intentionally only while their direct-contact CTAs are active. WhatsApp values
+must use E.164 form with a leading `+` and country code.
 
 For local response testing only, the built-in test adapter accepts `CONTACT_EMAIL_PROVIDER=mock` and `CONTACT_MOCK_RESULT=success` or `failure`. Production-like local testing additionally requires `CONTACT_ENABLE_TEST_ADAPTER=true`. Never enable the test adapter in a deployed environment.
 
