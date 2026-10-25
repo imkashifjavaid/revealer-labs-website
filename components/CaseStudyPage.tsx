@@ -40,7 +40,7 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
               <div>
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="rounded-full border border-accent/35 bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-ink">
-                    {caseStudy.statusLabel ?? "Concept Demo"}
+                    {caseStudy.statusLabel ?? "Project Case Study"}
                   </span>
                   <span className="text-xs font-semibold tracking-[0.16em] text-subtle">
                     {caseStudy.eyebrow}

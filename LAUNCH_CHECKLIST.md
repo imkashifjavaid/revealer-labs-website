@@ -1,14 +1,14 @@
 # Revealer Labs launch checklist
 
-Last reviewed: 2026-10-10
+Last reviewed: 2026-10-26
 
 ## Completed checks
 
 - [x] Production lint, TypeScript and Next.js build complete successfully
-- [x] Homepage, Privacy Policy draft, Terms of Service draft and all four case-study routes render successfully
+- [x] Homepage, Privacy Policy draft, Terms of Service draft and all three case-study routes render successfully
 - [x] Mobile and desktop layouts checked without horizontal overflow or broken local assets
 - [x] Light/dark theme switching, persistence and readable green brand tokens retained
-- [x] Mobile menu, portfolio filters, Show More, project dialog, FAQ accordions and keyboard Escape behavior regression-checked
+- [x] Mobile menu, portfolio filters, project dialog, FAQ accordions and keyboard Escape behavior regression-checked
 - [x] One primary heading and one main landmark are present on every public route
 - [x] Skip-to-content navigation, visible focus styles, labelled form controls and image alternative text are present
 - [x] Page titles, descriptions, canonical URLs and route-specific case-study metadata are configured
@@ -19,6 +19,7 @@ Last reviewed: 2026-10-10
 - [x] Baseline response headers cover MIME sniffing, framing, referrer data and unused camera/microphone/location access
 - [x] Local Inter files, Next.js image optimization, static generation and the absence of third-party tracking scripts reduce launch-time overhead
 - [x] Repository and browser assets were checked for committed email credentials
+- [x] Netlify GitHub import is configured for `main` with `npm run build`, `.next` and the Next.js Runtime; the deploy action remains intentionally unsubmitted
 
 ## Contact delivery status
 
@@ -37,11 +38,11 @@ Never enable the mock adapter in production. A mock acceptance is not evidence t
 - [ ] Configure all four Resend values listed below, then complete a real end-to-end delivery and inbox receipt check
 - [ ] Replace every `[REVIEW REQUIRED: ...]` marker in both legal drafts with the owner-approved business identity, address, effective date, lawful basis, retention policy, rights process, governing law and jurisdiction
 - [ ] Obtain appropriate legal review and remove the draft/not-approved presentation only after approval
-- [ ] Choose the production host and decide whether the current per-instance in-memory rate limit is sufficient; multi-instance hosting should use a shared persistent limiter
+- [ ] Complete the pending Netlify project creation after testing approval, then decide whether the current per-instance in-memory rate limit is sufficient; multi-instance hosting should use a shared persistent limiter
 - [ ] Confirm HTTPS on the final host before enabling a long-lived HSTS policy
 - [ ] Run Lighthouse or an equivalent lab audit against the deployed production URL and begin collecting real Core Web Vitals; local browser checks are not field performance data
 
-Concept portfolio entries remain visibly labelled as illustrative work. Grow Counter is separately labelled as a functional prototype with its remaining device-validation limitation. Replace concept entries with approved client material when available.
+The public portfolio now contains only genuine work: one locally validated client prototype, one live ecommerce website, one functional Android prototype and one Unity visual showcase. Fictional and placeholder cards and routes are excluded from public listings.
 
 ## Required production environment values
 
@@ -53,6 +54,7 @@ CONTACT_EMAIL_PROVIDER=resend
 RESEND_API_KEY=replace-with-a-live-resend-api-key
 CONTACT_TO_EMAIL=replace-with-the-confirmed-recipient
 CONTACT_FROM_EMAIL=Revealer Labs <replace-with-a-sender-on-a-verified-domain>
+CONTACT_PUBLIC_EMAIL=replace-with-a-confirmed-public-address-if-using-the-email-fallback
 ```
 
 Value requirements:
@@ -62,6 +64,7 @@ Value requirements:
 - `RESEND_API_KEY`: secret live API key from the production Resend account
 - `CONTACT_TO_EMAIL`: confirmed inbox that should receive project enquiries
 - `CONTACT_FROM_EMAIL`: display name and sender address accepted by the verified Resend domain
+- `CONTACT_PUBLIC_EMAIL`: optional public `mailto:` fallback; omit it when the address must not be published
 
 The following variables are for local testing only and must be absent in production:
 

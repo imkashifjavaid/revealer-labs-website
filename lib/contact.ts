@@ -17,6 +17,34 @@ export type DeliveryResult =
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+export type ContactAvailability =
+  | { mode: "form" }
+  | { mode: "email"; email: string }
+  | { mode: "unavailable" };
+
+export function getContactAvailability(
+  environment: NodeJS.ProcessEnv = process.env,
+): ContactAvailability {
+  const provider = environment.CONTACT_EMAIL_PROVIDER?.toLowerCase();
+  const mockEnabled = environment.NODE_ENV !== "production"
+    || environment.CONTACT_ENABLE_TEST_ADAPTER === "true";
+  const resendConfigured = provider === "resend"
+    && Boolean(environment.RESEND_API_KEY)
+    && Boolean(environment.CONTACT_TO_EMAIL)
+    && Boolean(environment.CONTACT_FROM_EMAIL);
+
+  if (resendConfigured || (provider === "mock" && mockEnabled)) {
+    return { mode: "form" };
+  }
+
+  const publicEmail = environment.CONTACT_PUBLIC_EMAIL?.trim();
+  if (publicEmail && publicEmail.length <= 254 && emailPattern.test(publicEmail)) {
+    return { mode: "email", email: publicEmail };
+  }
+
+  return { mode: "unavailable" };
+}
+
 export function parseContactPayload(value: unknown): ContactPayload {
   const payload = value && typeof value === "object" ? value as Record<string, unknown> : {};
   const read = (key: string) => typeof payload[key] === "string" ? payload[key].trim() : "";

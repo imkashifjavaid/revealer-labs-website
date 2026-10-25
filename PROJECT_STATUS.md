@@ -299,3 +299,52 @@ Verification completed:
 - Confirmed below-the-fold gallery images remain lazy-loaded until approached, then load without broken assets
 - Confirmed no horizontal overflow and no browser console warnings or errors during the case-study checks
 - Confirmed the production build generates the Ash Blades case-study route and sitemap entry
+
+## Public portfolio launch cleanup — 25 October 2026
+
+Completed:
+
+- Replaced the fictional AI work-order concept with **Revealer AI Work Orders**, a client prototype created for **Nawar Al Hulool**
+- Verified the implemented scope against the separate Django project source: work orders and technician assignments, Telegram dispatch and reply updates, voice-note transcription, AI analysis records and permission-controlled manager review
+- Labelled the work accurately as a locally validated **Client Prototype**; no production deployment, client result, time-saving or performance claim is made
+- Added four optimized, public-safe WebP screenshots with usernames, client records, work-order references and operational details removed or replaced
+- Removed all fictional and placeholder cards from the public project dataset, including their dialog entries and generated case-study routes
+- Kept four genuine portfolio entries: Revealer AI Work Orders, Ash Blades, Grow Counter and the Unity driving-scene visual showcase
+- Removed the empty Brand & Motion filter and retained only categories that contain published work
+- Replaced fictional homepage showcase artwork with imagery from the genuine published project set
+- Preserved older concept assets on disk without exposing them in public listings
+
+Verified limitations:
+
+- The work-order source README calls the system a local prototype and documents one Telegram dispatch audit record per work order
+- The inspected Django configuration uses development settings and SQLite; production deployment of the work-order system is not claimed
+- Revealer Labs contact delivery remains unverified without live Resend credentials
+- Production hosting for this website is not configured in the repository; `.openai/hosting.json`, `vercel.json` and a linked host project are absent
+
+Verification completed:
+
+- `npm run lint` and `npm run typecheck` pass
+- `npm run build` passes with the documented Next.js 16 Webpack flag after the sandboxed Turbopack CSS worker repeatedly exited before connecting
+- The production build generates only three case-study routes: Ash Blades, Grow Counter and Revealer AI Work Orders
+- Desktop 1280px and mobile 375 × 812 browser checks covered all four cards, all non-empty filters, both themes, mobile navigation, dialog focus/scroll locking, Escape focus restoration and keyboard gallery navigation
+- All published routes load without horizontal overflow, broken images or browser console warnings/errors
+- The removed Orbital Courier route returns the custom 404 and no longer exposes its project title
+- Browser checks found none of the sampled confidential usernames, work-order references or client-record values in the public AI case-study DOM
+
+## Contact availability and Netlify preparation — 26 October 2026
+
+Completed:
+
+- Added a runtime contact-availability response to `GET /api/contact`
+- Kept the enquiry form hidden unless the complete Resend delivery configuration is present
+- Added an optional `CONTACT_PUBLIC_EMAIL` fallback that renders a deliberate `mailto:` CTA only for a confirmed public address
+- Added an honest non-submitting contact status when neither delivery nor a public email is configured
+- Added a minimal `netlify.toml` build command without secrets or deployment side effects
+- Connected the Netlify import flow to the private GitHub repository and confirmed Netlify detects `main`, `npm run build`, `.next` and the Next.js Runtime
+
+Pending:
+
+- Final Netlify project creation, which is coupled to the first production deploy in the current import flow
+- Final generated `netlify.app` URL for `SITE_URL`
+- A confirmed public email address for the temporary CTA, or complete verified Resend delivery values
+- User testing approval before any production deploy

@@ -39,7 +39,7 @@ export default function TermsOfServicePage() {
 
       <LegalSection title="2. Informational purpose">
         <p>
-          The website describes possible digital services and capabilities. Portfolio entries marked “Concept Demo” are illustrative examples, not completed client projects, endorsements or promises that identical results will be delivered.
+          The website describes digital services and selected work. Portfolio status labels distinguish live websites, locally validated prototypes and visual showcases; they are not guarantees that identical results will be delivered for another project.
         </p>
       </LegalSection>
 

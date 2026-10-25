@@ -26,7 +26,6 @@ export const projectCategories = [
   "Mobile Apps",
   "AI & Automation",
   "Game Development",
-  "Brand & Motion",
 ] as const;
 
 export type ProjectCategory = Exclude<(typeof projectCategories)[number], "All">;
@@ -50,9 +49,8 @@ export type Project = {
   previewAlt: string;
   previewFit?: "cover" | "contain";
   demoStatus:
-    | "Concept Demo"
+    | "Client Prototype"
     | "Visual Showcase"
-    | "Concept Campaign"
     | "Functional Prototype"
     | "Ecommerce Website";
   detailHeading?: string;
@@ -212,6 +210,57 @@ export const services: Service[] = [
 
 export const projects: Project[] = [
   {
+    id: "revealer-ai-work-orders",
+    title: "Revealer AI Work Orders",
+    category: "AI & Automation",
+    description:
+      "A client workflow prototype for Nawar Al Hulool, connecting Django work-order management with Telegram technician updates and manager review.",
+    summary:
+      "A locally validated client prototype that manages work orders and technician assignments in Django, dispatches jobs through Telegram, stores text or transcribed voice updates, and keeps AI-assisted status changes behind a manager review checkpoint.",
+    intendedFeatures: [
+      "Django admin for work orders, clients and technician assignments",
+      "Telegram dispatch, acceptance and technician reply updates",
+      "Voice-note transcription with manager-controlled review",
+    ],
+    technologies: ["Django", "Python", "Telegram Bot API", "Gemini API"],
+    previewPath:
+      "/case-studies/revealer-ai-work-orders/telegram-voice-transcription-redacted.webp",
+    previewAlt:
+      "Redacted Telegram conversation showing voice work-order updates being transcribed and saved",
+    previewFit: "contain",
+    demoStatus: "Client Prototype",
+    detailHeading: "IMPLEMENTED WORKFLOW",
+    tagHeading: "IMPLEMENTATION",
+    galleryImages: [
+      {
+        path: "/case-studies/revealer-ai-work-orders/telegram-voice-transcription-redacted.webp",
+        alt: "Redacted Telegram conversation showing three voice work-order updates acknowledged as transcribed and saved",
+        caption: "Voice updates transcribed and stored through the Telegram workflow",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/revealer-ai-work-orders/telegram-dispatch-redacted.webp",
+        alt: "Redacted Telegram work-order dispatch with an acceptance control and saved technician reply",
+        caption: "Technician dispatch, acceptance and reply-based status update flow",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/revealer-ai-work-orders/django-admin-modules-redacted.webp",
+        alt: "Redacted Django administration dashboard listing work orders, technician updates, clients and Telegram dispatch modules",
+        caption: "Django admin modules for operational records and assignments",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/revealer-ai-work-orders/manager-review-redacted.webp",
+        alt: "Redacted manager review screen with confirmation state, attention flags, AI summary and work comparison sections",
+        caption: "Manager review checkpoint before an AI-assisted status update is confirmed",
+        aspect: "landscape",
+      },
+    ],
+    caseStudySlug: "ai-work-order-automation",
+    caseStudyLinkLabel: "Read client case study",
+  },
+  {
     id: "ash-blades-ecommerce",
     title: "Ash Blades",
     category: "Web Development",
@@ -281,109 +330,6 @@ export const projects: Project[] = [
     caseStudyLinkLabel: "Read product case study",
   },
   {
-    id: "meridian-commerce",
-    title: "Meridian Commerce",
-    category: "Web Development",
-    description: "A focused storefront concept built to make product discovery feel calm and immediate.",
-    summary:
-      "An illustrative commerce experience exploring clear product hierarchy, confident calls to action and a friction-light path from browsing to checkout.",
-    intendedFeatures: [
-      "Proposed responsive product catalogue",
-      "Proposed guided product comparison",
-      "Proposed streamlined checkout flow",
-    ],
-    technologies: ["Next.js", "TypeScript", "Commerce API"],
-    previewPath: "/previews/meridian-commerce.svg",
-    previewAlt: "Concept preview of a dark commerce website with product cards and a featured item",
-    demoStatus: "Concept Demo",
-  },
-  {
-    id: "atlas-operations",
-    title: "Atlas Operations",
-    category: "Web Development",
-    description: "A practical operations dashboard concept for seeing priorities without the noise.",
-    summary:
-      "A dashboard study designed around quick scanning, meaningful status cues and a compact view of work that needs attention.",
-    intendedFeatures: [
-      "Proposed real-time operational overview",
-      "Proposed role-based dashboard views",
-      "Proposed exportable performance reports",
-    ],
-    technologies: ["React", "Data Visualization", "REST API"],
-    previewPath: "/previews/atlas-operations.svg",
-    previewAlt: "Concept preview of an operations dashboard with charts, metrics and activity panels",
-    demoStatus: "Concept Demo",
-  },
-  {
-    id: "beacon-booking",
-    title: "Beacon Booking",
-    category: "Web Development",
-    description: "A service-booking concept that turns availability into a simple, reassuring flow.",
-    summary:
-      "An appointment experience concept balancing useful service details, clear availability and a lightweight reservation journey.",
-    intendedFeatures: [
-      "Proposed live availability calendar",
-      "Proposed service and staff selection",
-      "Proposed booking reminders",
-    ],
-    technologies: ["Next.js", "Calendar API", "PostgreSQL"],
-    previewPath: "/previews/beacon-booking.svg",
-    previewAlt: "Concept preview of a booking website with a calendar and service selection panel",
-    demoStatus: "Concept Demo",
-  },
-  {
-    id: "flowline-ops",
-    title: "Flowline Ops",
-    category: "AI & Automation",
-    description: "A workflow concept that moves incoming requests from review to the right next action.",
-    summary:
-      "A visual automation system concept for routing requests, enriching data and keeping human approval at the moments that matter.",
-    intendedFeatures: [
-      "Proposed multi-source request intake",
-      "Proposed AI-assisted classification",
-      "Proposed approval and exception routing",
-    ],
-    technologies: ["AI Workflows", "Webhooks", "Node.js"],
-    previewPath: "/previews/flowline-ops.svg",
-    previewAlt: "Concept preview of an automation workflow with connected processing steps",
-    demoStatus: "Concept Demo",
-    caseStudySlug: "ai-work-order-automation",
-  },
-  {
-    id: "signal-desk",
-    title: "Signal Desk",
-    category: "AI & Automation",
-    description: "An assisted support workspace concept that keeps context and suggested actions together.",
-    summary:
-      "A support automation concept combining conversation history, knowledge retrieval and suggested next steps while leaving final decisions to people.",
-    intendedFeatures: [
-      "Proposed knowledge-grounded responses",
-      "Proposed priority and intent detection",
-      "Proposed human review controls",
-    ],
-    technologies: ["LLM", "Vector Search", "Integrations"],
-    previewPath: "/previews/signal-desk.svg",
-    previewAlt: "Concept preview of an AI-assisted support desk with conversation and suggestion panels",
-    demoStatus: "Concept Demo",
-  },
-  {
-    id: "ledger-loop",
-    title: "Ledger Loop",
-    category: "AI & Automation",
-    description: "A document-processing concept for turning recurring paperwork into review-ready records.",
-    summary:
-      "An automation concept for extracting structured information from business documents, flagging uncertain fields and preparing clean records for review.",
-    intendedFeatures: [
-      "Proposed structured document extraction",
-      "Proposed confidence-based review queue",
-      "Proposed accounting-system handoff",
-    ],
-    technologies: ["Document AI", "OCR", "Automation"],
-    previewPath: "/previews/ledger-loop.svg",
-    previewAlt: "Concept preview of a document automation queue with extracted fields and status indicators",
-    demoStatus: "Concept Demo",
-  },
-  {
     id: "driving-game-scene-unity-visual-showcase",
     title: "Driving Game Scene — Unity Visual Showcase",
     category: "Game Development",
@@ -420,83 +366,6 @@ export const projects: Project[] = [
         caption: "Highway scene — rear view of the green and orange cars",
       },
     ],
-  },
-  {
-    id: "neon-circuit",
-    title: "Neon Circuit",
-    category: "Game Development",
-    description: "A kinetic arcade-racing concept built around readable action and fast decisions.",
-    summary:
-      "An interactive game concept exploring responsive vehicle handling, short competitive sessions and a bold neon visual language.",
-    intendedFeatures: [
-      "Proposed arcade driving system",
-      "Proposed time-trial challenges",
-      "Proposed modular track environments",
-    ],
-    technologies: ["Unity", "C#", "3D Systems"],
-    previewPath: "/previews/neon-circuit.svg",
-    previewAlt: "Concept preview of a neon arcade racing game scene",
-    demoStatus: "Concept Demo",
-  },
-  {
-    id: "driftline-arena",
-    title: "Driftline Arena",
-    category: "Game Development",
-    description: "A compact strategy-arena concept where positioning matters more than complexity.",
-    summary:
-      "A top-down multiplayer concept testing clear spatial tactics, quick rounds and a restrained set of abilities with distinct roles.",
-    intendedFeatures: [
-      "Proposed team-based arena rounds",
-      "Proposed character ability system",
-      "Proposed local and online play modes",
-    ],
-    technologies: ["Unity", "Netcode", "Game Systems"],
-    previewPath: "/previews/driftline-arena.svg",
-    previewAlt: "Concept preview of a top-down strategy arena with players and objective zones",
-    demoStatus: "Concept Demo",
-  },
-  {
-    id: "orbital-courier",
-    title: "Orbital Courier",
-    category: "Game Development",
-    description: "A narrative delivery-game concept about navigating small worlds under pressure.",
-    summary:
-      "An exploration concept combining compact planets, route planning and environmental storytelling in short, replayable missions.",
-    intendedFeatures: [
-      "Proposed physics-led traversal",
-      "Proposed branching delivery missions",
-      "Proposed upgradeable navigation tools",
-    ],
-    technologies: ["Unity", "C#", "Narrative Design"],
-    previewPath: "/previews/orbital-courier.svg",
-    previewAlt: "Concept preview of a small spacecraft navigating planets and delivery routes",
-    demoStatus: "Concept Demo",
-    caseStudySlug: "orbital-courier-mobile-prototype",
-  },
-  {
-    id: "naseem-perfume-ad-concept",
-    title: "Naseem — Perfume Ad Concept",
-    category: "Brand & Motion",
-    description:
-      "An eight-second creator-style perfume concept built around a direct-to-camera product presentation.",
-    summary:
-      "A finished vertical video created as a Revealer Labs portfolio concept. Naseem appears only as the featured product; this is not a product sold by Revealer Labs, a client campaign or a claim of commercial results.",
-    intendedFeatures: [
-      "Creative concept and short-form ad execution by Revealer Labs",
-      "Direct-to-camera presentation structured around the featured perfume",
-      "Final eight-second vertical edit prepared for portfolio presentation",
-    ],
-    technologies: ["UGC-style Ad", "Vertical Video", "H.264 MP4"],
-    previewPath: "/portfolio/naseem-perfume-concept/naseem-perfume-ad-poster.webp",
-    previewAlt:
-      "Woman holding a bottle of Naseem perfume beside a vanity in a vertical creator-style portrait",
-    previewFit: "contain",
-    demoStatus: "Concept Campaign",
-    detailHeading: "CREATIVE CONTRIBUTION",
-    tagHeading: "FORMAT",
-    videoPath: "/portfolio/naseem-perfume-concept/naseem-perfume-concept-ad.mp4",
-    videoPosterPath: "/portfolio/naseem-perfume-concept/naseem-perfume-ad-poster.webp",
-    videoLabel: "Naseem perfume UGC-style concept ad",
   },
 ];
 
@@ -702,101 +571,87 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "ai-work-order-automation",
-    projectId: "flowline-ops",
-    title: "AI Work-Order Automation",
-    eyebrow: "OPERATIONS CONCEPT",
+    projectId: "revealer-ai-work-orders",
+    title: "Revealer AI Work Orders",
+    eyebrow: "CLIENT WORKFLOW PROTOTYPE",
     summary:
-      "A practical concept for turning inconsistent work requests into structured, reviewable work orders while keeping people responsible for exceptions and approvals.",
+      "A client prototype created for Nawar Al Hulool to manage work orders in Django, dispatch assignments through Telegram and keep AI-assisted technician updates under manager review.",
     problem:
-      "Work requests can arrive through forms, inboxes and chat with missing details, inconsistent urgency and no shared routing logic. Teams then spend time rewriting requests, chasing context and manually deciding who should act next.",
+      "Operational work orders, technician assignments and field updates need one traceable workflow. Managers need structured records and review controls, while technicians need a low-friction way to receive assignments and report progress from the field.",
     proposedSolution:
-      "Create a controlled intake workflow that normalizes each request, proposes a category and priority, highlights missing information and routes the draft work order to a human reviewer before assignment. Automation supports the decision; it does not silently make the final call.",
+      "The implemented prototype uses Django admin for client, technician and work-order records. Managers dispatch assigned work orders to linked technicians in Telegram; technicians accept and reply with text or voice updates. Voice notes are transcribed and saved, then AI-assisted analysis is presented for an authorized manager to review and confirm before the work-order status changes.",
     role: [
-      "Concept definition and workflow mapping",
-      "Exception and human-review design",
-      "Interface direction for intake and triage",
-      "Proposed integration architecture",
+      "Designed the work-order and technician-assignment workflow",
+      "Implemented the Django models, admin operations and review screens",
+      "Built Telegram dispatch, acceptance and reply-based update handling",
+      "Integrated voice transcription and manager-controlled AI review",
     ],
-    tools: ["Next.js", "TypeScript", "Node.js", "Webhook integrations", "AI classification API"],
+    tools: ["Python", "Django", "Telegram Bot API", "Gemini API", "SQLite prototype database"],
     deliverables: [
-      "Work-order intake flow",
-      "Classification and confidence model",
-      "Human-review queue concept",
-      "Integration and failure-state notes",
+      "Django work-order administration",
+      "Telegram technician dispatch and update workflow",
+      "Text and voice technician-update records",
+      "AI analysis review and confirmation controls",
     ],
-    heroPath: "/previews/flowline-ops.svg",
-    heroAlt: "Concept workflow showing intake, enrichment, review and assignment steps",
-    visualMode: "workflow",
-    visualFrames: [
+    heroPath:
+      "/case-studies/revealer-ai-work-orders/telegram-voice-transcription-redacted.webp",
+    heroAlt:
+      "Redacted Telegram conversation showing voice work-order updates being transcribed and saved",
+    heroFit: "contain",
+    visualMode: "gallery",
+    visualFrames: [],
+    galleryImages: [
       {
-        label: "01 / INTAKE",
-        title: "Capture the request once",
-        description: "Bring form, email or bot submissions into one consistent work-order draft.",
+        path: "/case-studies/revealer-ai-work-orders/telegram-voice-transcription-redacted.webp",
+        alt: "Redacted Telegram conversation showing three voice work-order updates acknowledged as transcribed and saved",
+        caption: "Voice updates transcribed and stored through the Telegram workflow",
+        aspect: "landscape",
       },
       {
-        label: "02 / ASSIST",
-        title: "Suggest, never conceal",
-        description: "Show proposed category, urgency and missing fields with visible confidence cues.",
+        path: "/case-studies/revealer-ai-work-orders/telegram-dispatch-redacted.webp",
+        alt: "Redacted Telegram work-order dispatch with an acceptance control and saved technician reply",
+        caption: "Technician dispatch, acceptance and reply-based status update flow",
+        aspect: "landscape",
       },
       {
-        label: "03 / REVIEW",
-        title: "Keep a human checkpoint",
-        description: "Let an operator correct the draft before assignment or downstream actions.",
+        path: "/case-studies/revealer-ai-work-orders/django-admin-modules-redacted.webp",
+        alt: "Redacted Django administration dashboard listing work orders, technician updates, clients and Telegram dispatch modules",
+        caption: "Django admin modules for operational records and assignments",
+        aspect: "landscape",
+      },
+      {
+        path: "/case-studies/revealer-ai-work-orders/manager-review-redacted.webp",
+        alt: "Redacted manager review screen with confirmation state, attention flags, AI summary and work comparison sections",
+        caption: "Manager review checkpoint before an AI-assisted status update is confirmed",
+        aspect: "landscape",
       },
     ],
     realNow:
-      "The workflow map, interface direction and local preview artwork are original concept work prepared for Revealer Labs.",
+      "The codebase implements Django work orders and assignments, Telegram dispatch and acceptance, text and voice technician updates, Gemini-backed voice transcription, AI analysis records and permission-controlled manager confirmation. These paths have been exercised locally with test and sample records.",
     proposedNext:
-      "A functioning intake service, AI model connection, integrations, audit trail and production testing are proposed—not delivered or connected to a real organization.",
-  },
-  {
-    slug: "orbital-courier-mobile-prototype",
-    projectId: "orbital-courier",
-    title: "Orbital Courier: Mobile Prototype",
-    eyebrow: "GAMEPLAY CONCEPT",
-    summary:
-      "A small-screen game prototype direction built around short delivery missions, readable touch controls and route choices that create pressure without visual overload.",
-    problem:
-      "Mobile action games often ask players to read too much, manage too many controls or commit to long sessions. A compact delivery game needs a clear loop that feels satisfying in a few minutes and remains understandable on a small display.",
-    proposedSolution:
-      "Prototype a one-thumb flight model with short planet-to-planet routes, visible fuel and risk trade-offs, and missions that can be completed in brief sessions. Start with one route and one meaningful upgrade before expanding the world.",
-    role: [
-      "Core-loop and mission concept",
-      "Mobile interaction direction",
-      "Progression and feedback planning",
-      "Prototype art direction",
-    ],
-    tools: ["Unity", "C#", "Unity Input System", "Mobile profiling", "Narrative design"],
-    deliverables: [
-      "Core gameplay loop",
-      "Touch-control proposal",
-      "First mission and route outline",
-      "Feedback and progression notes",
-    ],
-    heroPath: "/previews/orbital-courier.svg",
-    heroAlt: "Concept game scene with a courier spacecraft moving between small planets",
-    visualMode: "mobile",
-    visualFrames: [
-      {
-        label: "MISSION BEAT",
-        title: "Choose a route",
-        description: "Balance distance, fuel and optional pickups before leaving the current orbit.",
-      },
-      {
-        label: "TOUCH LOOP",
-        title: "Steer with restraint",
-        description: "Use a compact input model with strong visual feedback instead of a crowded control deck.",
-      },
-      {
-        label: "SHORT REWARD",
-        title: "Deliver and improve",
-        description: "Complete a brief run, review the result and choose one useful navigation upgrade.",
-      },
-    ],
-    realNow:
-      "The gameplay premise, interaction direction and local space-scene artwork are original concept materials.",
-    proposedNext:
-      "A playable Unity build, device profiling, audio, progression balancing and user testing remain proposed and have not been presented as completed work.",
+      "Production deployment is not verified. The inspected configuration still uses Django development settings and SQLite, and the project README documents a local-prototype limitation of one Telegram dispatch audit record per work order. Multi-instance deployment, production hardening and dispatch-history expansion remain future work.",
+    statusLabel: "Client Prototype",
+    scopeTitle: "Verified project status",
+    scopeCopy:
+      "Created for Nawar Al Hulool. The workflow is implemented and locally validated, but it is not presented as a production deployment. Screenshots are redacted and no client records, credentials, private links, results or performance claims are published.",
+    solutionTitle: "The implemented workflow",
+    contributionEyebrow: "Verified contribution",
+    contributionTitle: "Built from administration to field updates",
+    roleTitle: "My contribution",
+    toolsTitle: "Implementation",
+    deliverablesTitle: "Implemented scope",
+    visualEyebrow: "Redacted product screens",
+    visualTitle: "A connected, reviewable field workflow",
+    visualDescription:
+      "These screenshots show the implemented Django and Telegram paths. Usernames, client records, work-order references and operational details have been removed or replaced for public use.",
+    heroCaptionPrimary: "Telegram voice-update workflow",
+    heroCaptionSecondary: "Public-safe screenshot · confidential records redacted",
+    realNowLabel: "IMPLEMENTED",
+    realNowTitle: "What is verified in the prototype",
+    proposedNextLabel: "NOT CLAIMED",
+    proposedNextTitle: "What is not yet verified",
+    metadataDescription:
+      "Revealer AI Work Orders is a client workflow prototype for Nawar Al Hulool, connecting Django work-order administration, Telegram technician updates, voice transcription and manager review.",
   },
 ];
 
@@ -806,30 +661,32 @@ export const getCaseStudy = (slug: string) =>
 export const industryShowcases: IndustryShowcase[] = [
   {
     title: "Business Websites",
-    label: "CLARITY THAT CONVERTS",
+    label: "LIVE STOREFRONT DELIVERY",
     description:
-      "Purpose-built web experiences that explain the offer, guide the right next step and stay easy to manage as the business grows.",
-    capabilities: ["Responsive product and service pages", "Conversion-focused user journeys", "Content and system integrations"],
-    previewPath: "/previews/meridian-commerce.svg",
-    previewAlt: "Concept business website preview",
+      "Responsive web experiences that organize real content, support confident browsing and give each page a clear purpose.",
+    capabilities: ["Responsive catalog experiences", "Product-detail presentation", "Search and shopping journeys"],
+    previewPath: "/case-studies/ash-blades/ash-blades-product-detail.webp",
+    previewAlt: "Ash Blades live ecommerce product page with gallery, price and purchase controls",
   },
   {
     title: "Workflow Automation",
-    label: "LESS REPETITION, MORE CONTROL",
+    label: "IMPLEMENTED CLIENT PROTOTYPE",
     description:
-      "Connected workflows that handle routine movement of information while preserving clear review points, ownership and exceptions.",
-    capabilities: ["Intake and routing workflows", "AI-assisted classification", "Human approvals and audit trails"],
-    previewPath: "/previews/flowline-ops.svg",
-    previewAlt: "Concept workflow automation preview",
+      "Connected operational tools that move assignments and updates between managers and field teams while preserving a human review checkpoint.",
+    capabilities: ["Django work-order administration", "Telegram technician updates", "AI-assisted manager review"],
+    previewPath:
+      "/case-studies/revealer-ai-work-orders/telegram-voice-transcription-redacted.webp",
+    previewAlt: "Redacted Telegram voice updates being transcribed and saved for a work-order workflow",
   },
   {
     title: "Interactive Experiences",
-    label: "SYSTEMS PEOPLE CAN FEEL",
+    label: "UNITY VISUAL WORK",
     description:
-      "Playable prototypes and real-time experiences shaped around a strong interaction loop, readable feedback and a distinct visual identity.",
-    capabilities: ["Unity gameplay prototypes", "Interactive product experiences", "Reusable real-time systems"],
-    previewPath: "/previews/neon-circuit.svg",
-    previewAlt: "Concept interactive game experience preview",
+      "Real-time visual work shaped around readable scenes, strong presentation and a clear direction for future interactive development.",
+    capabilities: ["Unity scene presentation", "Vehicle and environment composition", "Interactive prototype direction"],
+    previewPath:
+      "/portfolio/driving-game-scene-unity/unity-highway-police-car-render.png",
+    previewAlt: "Unity highway scene render with a green car, police car and helicopter",
   },
 ];
 

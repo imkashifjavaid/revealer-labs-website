@@ -1,5 +1,6 @@
 import {
   deliverContactEnquiry,
+  getContactAvailability,
   parseContactPayload,
   validateContactPayload,
 } from "@/lib/contact";
@@ -58,6 +59,10 @@ function hasValidOrigin(request: Request) {
   } catch {
     return false;
   }
+}
+
+export function GET() {
+  return json(getContactAvailability(), 200);
 }
 
 export async function POST(request: Request) {

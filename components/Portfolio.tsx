@@ -109,13 +109,13 @@ export function Portfolio() {
         <Reveal>
           <SectionHeader
             eyebrow="PORTFOLIO"
-            title="Ideas Shaped Into Digital Work"
-            description="A look at focused digital work Revealer Labs can shape—from useful web platforms to automated workflows, interactive concepts and visual showcases."
+            title="Selected Work, Clearly Labelled"
+            description="Real client work, functional products and owned visual work—presented with the status and scope each project has actually reached."
             align="center"
           />
 
           <p className="mx-auto mt-7 max-w-3xl text-center text-base leading-7 text-muted">
-            Each entry is labelled by its real status—live website, concept demo, visual showcase, concept campaign or functional prototype.
+            Client and operational details are kept private; every public entry distinguishes live work from locally validated prototypes and visual showcases.
           </p>
 
           <div
@@ -210,9 +210,9 @@ export function Portfolio() {
         ) : (
           <div className="mt-12 rounded-3xl border border-dashed border-line-strong bg-panel/60 px-6 py-14 text-center">
             <SearchX aria-hidden="true" className="mx-auto text-accent-ink" size={28} />
-            <h3 className="mt-5 text-xl font-semibold text-content">No concepts in this category yet</h3>
+            <h3 className="mt-5 text-xl font-semibold text-content">No published work in this category yet</h3>
             <p className="mx-auto mt-2 max-w-md text-base leading-7 text-muted">
-              Choose another category to explore the current concept collection.
+              Choose another category to explore the current portfolio.
             </p>
           </div>
         )}

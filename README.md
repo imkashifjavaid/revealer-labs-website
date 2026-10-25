@@ -1,6 +1,6 @@
 # Revealer Labs website
 
-A responsive agency website for Revealer Labs, covering services, portfolio concepts and product work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
+A responsive agency website for Revealer Labs, covering services, verified portfolio work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
 
 ## Local setup
 
@@ -22,6 +22,8 @@ npm run typecheck
 npm run build
 ```
 
+The build script uses Next.js 16's supported `--webpack` flag. This avoids an intermittent Turbopack CSS-worker startup panic observed in the local Windows sandbox while preserving the same production route and TypeScript validation.
+
 ## Contact form configuration
 
 The form posts to `/api/contact`, which validates every field again on the server, checks a honeypot, limits payload size, verifies same-origin browser requests and applies a best-effort in-memory limit of five requests per IP address every 15 minutes.
@@ -34,6 +36,7 @@ CONTACT_EMAIL_PROVIDER=resend
 RESEND_API_KEY=your_resend_api_key
 CONTACT_TO_EMAIL=your_confirmed_recipient_address
 CONTACT_FROM_EMAIL=Revealer Labs <enquiries@your_verified_domain>
+CONTACT_PUBLIC_EMAIL=your_confirmed_public_contact_address
 ```
 
 `SITE_URL` is the public production origin used for canonical metadata,
@@ -41,6 +44,14 @@ CONTACT_FROM_EMAIL=Revealer Labs <enquiries@your_verified_domain>
 query string or fragment.
 
 `CONTACT_FROM_EMAIL` must use a sender/domain accepted by the Resend account. Restart the development server after changing environment values. None of these values use a `NEXT_PUBLIC_` prefix, so they remain server-only.
+
+The contact section checks `/api/contact` before exposing a submission path.
+It shows the form only when the complete Resend configuration is available. If
+delivery is unavailable and `CONTACT_PUBLIC_EMAIL` contains a confirmed public
+address, it shows an honest email CTA instead. With neither path configured, it
+shows a non-submitting availability notice rather than a broken form.
+`CONTACT_PUBLIC_EMAIL` is returned to the browser intentionally only while the
+email CTA is active.
 
 For local response testing only, the built-in test adapter accepts `CONTACT_EMAIL_PROVIDER=mock` and `CONTACT_MOCK_RESULT=success` or `failure`. Production-like local testing additionally requires `CONTACT_ENABLE_TEST_ADAPTER=true`. Never enable the test adapter in a deployed environment.
 
@@ -50,7 +61,7 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 - Section copy lives in the corresponding files under `components/`.
 - Semantic light/dark theme tokens, reduced-motion rules and global visual treatments live in `app/globals.css`.
 - Page metadata is defined in `app/layout.tsx`.
-- Local concept artwork lives in `public/previews/`. Replace a project’s `previewPath` when owned imagery is ready.
+- Older illustrative artwork remains in `public/previews/` for archive purposes but is no longer listed in the public portfolio.
 - Case-study artwork lives in `public/case-studies/`. Replace a study’s `heroPath` and matching portfolio `previewPath` when approved media is ready.
 
 ## Themes, motion and FAQ
@@ -63,22 +74,23 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 
 ## Portfolio content
 
-Portfolio entries are clearly labelled as live websites, concept demos, visual showcases, concept campaigns or functional prototypes. Each project record includes its category, summary, supporting notes, tags, preview path, status and optional gallery, self-hosted video, case-study or external-link fields. External links render only when a real URL is provided.
+The public portfolio contains four genuine entries: Revealer AI Work Orders, Ash Blades, Grow Counter and the Unity driving-scene visual showcase. Entries are labelled as a client prototype, live ecommerce website, functional prototype or visual showcase. Fictional and placeholder cards are excluded from the dataset, so every visible category contains published work and no removed case-study links remain.
+
+Revealer AI Work Orders was created for Nawar Al Hulool. Its public screenshots are redacted derivatives stored under `public/case-studies/revealer-ai-work-orders/`; usernames, client records, work-order references and operational details are not published. The case study reflects verified Django administration, Telegram dispatch and technician updates, voice transcription, and manager review behavior. The inspected source remains a locally validated SQLite prototype and is not described as a production deployment.
 
 The Driving Game Scene visual showcase uses three user-supplied older Unity renders stored under `public/portfolio/driving-game-scene-unity/`. The copied PNG bytes are unchanged. The entry does not claim authorship of individual vehicle or environment assets, and the owner's exact contribution and underlying asset-licensing details remain to be documented before the images are licensed or reused outside this portfolio context.
 
-Industry showcases also include an optional `videoPath`. Until owned video is available, the local SVG preview is shown.
+Industry showcases use imagery from the current published project set rather than fictional project previews.
 
 ## Case studies
 
-Four portfolio entries link to dedicated pages under `/work/[slug]`:
+Three portfolio entries link to dedicated pages under `/work/[slug]`:
 
 - Ash Blades live ecommerce storefront
 - Grow Counter functional Android prototype
-- AI work-order automation
-- Orbital Courier mobile-game prototype
+- Revealer AI Work Orders client prototype
 
-The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Concept entries separate original material from proposed implementation, tools, production and outcomes. Grow Counter is identified as a functional prototype with remaining device validation.
+The page content is generated from the typed `caseStudies` dataset in `lib/site-content.ts`. Each entry documents its verified status and limitations. Grow Counter remains a functional prototype with pending device validation; Revealer AI Work Orders remains a locally validated client prototype without a claimed production deployment.
 
 Grow Counter uses ten supplied product visuals stored as optimized WebP files under `public/portfolio/grow-counter/`. The case study documents version 2.5 as a packaged Android prototype, not a public store release.
 

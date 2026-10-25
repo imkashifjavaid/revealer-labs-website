@@ -1,9 +1,9 @@
 "use client";
 
-import { LoaderCircle, Send } from "lucide-react";
+import { LoaderCircle, Mail, Send } from "lucide-react";
 import Link from "next/link";
 import type { FormEvent, ReactNode } from "react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { contactServiceOptions } from "@/lib/site-content";
 
 type ContactField = "name" | "email" | "service" | "details";
@@ -18,6 +18,12 @@ type FormState = {
 const initialState: FormState = { status: "idle", message: "", fieldErrors: {} };
 const fieldOrder: ContactField[] = ["name", "email", "service", "details"];
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type ContactAvailability =
+  | { mode: "checking" }
+  | { mode: "form" }
+  | { mode: "email"; email: string }
+  | { mode: "unavailable" };
 
 function validate(values: Record<ContactField, string>): FieldErrors {
   const errors: FieldErrors = {};
@@ -45,6 +51,40 @@ export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [state, setState] = useState<FormState>(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [availability, setAvailability] = useState<ContactAvailability>({ mode: "checking" });
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function checkAvailability() {
+      try {
+        const response = await fetch("/api/contact", {
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        const result = await response.json() as ContactAvailability;
+
+        if (
+          response.ok
+          && (
+            result.mode === "form"
+            || result.mode === "unavailable"
+            || (result.mode === "email" && emailPattern.test(result.email))
+          )
+        ) {
+          setAvailability(result);
+          return;
+        }
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+      }
+
+      setAvailability({ mode: "unavailable" });
+    }
+
+    void checkAvailability();
+    return () => controller.abort();
+  }, []);
 
   const focusFirstError = (errors: FieldErrors) => {
     const firstField = fieldOrder.find((field) => errors[field]);
@@ -136,6 +176,53 @@ export function ContactForm() {
 
   const fieldClass =
     "mt-2 w-full rounded-2xl border border-line-strong bg-canvas/65 px-4 py-3.5 text-base text-content outline-none transition placeholder:text-subtle/80 hover:border-accent/35 focus:border-accent focus:ring-3 focus:ring-accent/15 aria-[invalid=true]:border-danger aria-[invalid=true]:ring-3 aria-[invalid=true]:ring-danger/15 disabled:cursor-not-allowed disabled:opacity-60";
+
+  if (availability.mode === "checking") {
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className="grid min-h-64 place-items-center rounded-3xl border border-line bg-panel/85 p-7 text-center shadow-[0_24px_80px_var(--surface-shadow-soft)] backdrop-blur"
+      >
+        <div>
+          <LoaderCircle aria-hidden="true" className="mx-auto animate-spin text-accent motion-reduce:animate-none" size={24} />
+          <p className="mt-4 text-sm text-muted">Checking contact availability…</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (availability.mode !== "form") {
+    const hasEmail = availability.mode === "email";
+
+    return (
+      <div className="rounded-3xl border border-line bg-panel/85 p-7 shadow-[0_24px_80px_var(--surface-shadow-soft)] backdrop-blur sm:p-9">
+        <div className="grid size-12 place-items-center rounded-2xl border border-accent/25 bg-accent/10 text-accent-ink">
+          <Mail aria-hidden="true" size={21} />
+        </div>
+        <p className="mt-6 text-sm font-semibold tracking-[0.16em] text-accent-ink">
+          {hasEmail ? "EMAIL ENQUIRIES" : "CONTACT SETUP IN PROGRESS"}
+        </p>
+        <h3 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-content sm:text-3xl">
+          {hasEmail ? "Send your project details by email." : "Enquiries are not open just yet."}
+        </h3>
+        <p className="mt-4 max-w-xl text-base leading-7 text-muted">
+          {hasEmail
+            ? "The delivery form is temporarily unavailable while its provider is being verified. Email remains available for project enquiries."
+            : "A confirmed public email address and reliable delivery are still being prepared. The form will stay unavailable until one of those contact paths is verified."}
+        </p>
+        {hasEmail ? (
+          <a
+            href={`mailto:${availability.email}?subject=Project%20enquiry%20%E2%80%94%20Revealer%20Labs`}
+            className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-[0_12px_36px_var(--accent-glow)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content motion-reduce:transform-none"
+          >
+            <Mail aria-hidden="true" size={17} />
+            Email Revealer Labs
+          </a>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <form
