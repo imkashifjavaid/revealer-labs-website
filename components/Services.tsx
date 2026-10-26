@@ -11,8 +11,8 @@ export function Services() {
         <Reveal>
           <SectionHeader
             eyebrow="SERVICES"
-            title="Useful technology, thoughtfully built."
-            description="From the customer-facing experience to the systems behind it, every solution starts with the problem it needs to solve."
+            title="What We Can Help With"
+            description="New websites, automation, internal tools, game prototypes and support for systems you already use."
             align="center"
           />
         </Reveal>

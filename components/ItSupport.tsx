@@ -20,10 +20,10 @@ export function ItSupport() {
                 Technical problems should not slow your work down.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
-                Revealer Labs provides remote technical support for businesses and individuals—covering everyday IT issues, software setup, connected systems and problems inside an existing codebase.
+                Revealer Labs provides remote technical support for businesses and individuals. This includes everyday IT issues, software setup, connected systems and problems inside an existing codebase.
               </p>
               <p className="mt-4 max-w-xl text-base leading-8 text-muted">
-                Support is scoped around the actual issue. That may mean diagnosing a problem remotely, fixing the code behind it, improving a deployment or explaining a practical path forward.
+                We can diagnose a problem remotely, fix the code behind it, improve a deployment or explain what needs to happen next.
               </p>
               <a
                 href="#contact"
@@ -51,7 +51,7 @@ export function ItSupport() {
                   <div>
                     <p className="text-sm font-semibold">Remote-first assistance</p>
                     <p className="mt-1 text-xs leading-5 text-white/65">
-                      Clear diagnosis, focused fixes and practical handover.
+                      Remote review, targeted fixes and a summary of the work completed.
                     </p>
                   </div>
                 </div>

@@ -371,3 +371,20 @@ Completed:
 - Removed the “Live-site note / Visible issues to address” panel from the Ash Blades case study
 - Made the secondary case-study status panel optional so the other case studies retain their existing validation notes
 - Removed the matching issue wording from current project documentation
+
+## Public copy cleanup — 26 October 2026
+
+Completed:
+
+- Rewrote the main homepage headings and supporting copy in direct, plain English
+- Removed repeated em dashes and replaced generic agency phrases such as “Code with context” and “Selected Work, Clearly Labelled”
+- Simplified service descriptions, IT support copy, portfolio introductions, capability examples, FAQ answers and contact instructions
+- Updated case-study labels and fallback copy without changing project facts, status labels or verified limitations
+- Updated page metadata and social-image text to match the clearer service description
+
+Verification:
+
+- `npm run lint`, `npm run typecheck` and `npm run build` pass
+- All six public routes returned HTTP 200 from the local production server
+- Rendered homepage checks confirmed the removed phrases are absent, the replacement headings are present and no em dashes remain
+- Next.js 16.4.0 reports a security upgrade recommendation; the dependency was not changed as part of this copy-only update

@@ -15,17 +15,17 @@ export function Contact() {
                 <MessageSquareText aria-hidden="true" size={22} />
               </div>
               <p className="mt-7 text-sm font-semibold tracking-[0.18em] text-accent-ink">
-                START A CONVERSATION
+                CONTACT
               </p>
               <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.055em] text-content sm:text-5xl">
-                Have a problem worth solving?
+                Tell us what you need.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
-                Share the goal, the current challenge and what a useful outcome would look like. We&apos;ll use these details only to review your enquiry.
+                Tell us what you want to build, fix or improve. Add any background that will help us understand the request.
               </p>
               <div className="mt-8 flex max-w-md items-start gap-3 rounded-2xl border border-line bg-canvas/45 p-4 text-sm leading-6 text-muted backdrop-blur">
                 <ShieldCheck aria-hidden="true" className="mt-0.5 shrink-0 text-accent-ink" size={18} />
-                Online form enquiries open only when delivery is verified. Until then, this section shows confirmed direct contact options or an honest availability notice.
+                The online form appears only when email delivery is configured. Until then, use the verified email or WhatsApp links.
               </div>
             </div>
 

@@ -109,13 +109,13 @@ export function Portfolio() {
         <Reveal>
           <SectionHeader
             eyebrow="PORTFOLIO"
-            title="Selected Work, Clearly Labelled"
-            description="Real client work, functional products and owned visual work—presented with the status and scope each project has actually reached."
+            title="Our Work"
+            description="Client projects, working prototypes and visual work. Each entry states what is live, what is still being tested and what was created for presentation."
             align="center"
           />
 
           <p className="mx-auto mt-7 max-w-3xl text-center text-base leading-7 text-muted">
-            Client and operational details are kept private; every public entry distinguishes live work from locally validated prototypes and visual showcases.
+            Private client and operational details are removed before anything is published.
           </p>
 
           <div

@@ -15,18 +15,18 @@ export function Hero() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
           <p className="mb-7 inline-flex items-center gap-3 rounded-full border border-accent/25 bg-accent/7 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-accent-ink sm:text-sm">
             <span className="size-1.5 rounded-full bg-accent shadow-[0_0_14px_var(--accent-glow-strong)]" />
-            CODE <span aria-hidden="true">•</span> AUTOMATION <span aria-hidden="true">•</span> DIGITAL SOLUTIONS
+            WEB <span aria-hidden="true">•</span> AUTOMATION <span aria-hidden="true">•</span> TECHNICAL SUPPORT
           </p>
 
           <h1 className="max-w-5xl text-balance text-[clamp(3rem,8vw,6.6rem)] font-semibold leading-[0.96] tracking-[-0.07em] text-content">
-            Smart Solutions.
+            Websites and Software.
             <span className="brand-gradient-text mt-2 block bg-clip-text text-transparent">
-              Built for Real Problems.
+              Built for Real Work.
             </span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-pretty text-base leading-8 text-muted sm:text-lg">
-            Web development, AI automation and interactive experiences—built around what your business needs.
+            Web development, AI automation and interactive work based on your project requirements.
           </p>
 
           <div className="mt-10 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
@@ -48,7 +48,7 @@ export function Hero() {
 
           <div className="mt-20 flex items-center gap-4 text-[0.7rem] font-semibold tracking-[0.18em] text-subtle sm:mt-24">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-accent/70" />
-            ENGINEERED WITH PURPOSE
+            BUILT TO SOLVE REAL PROBLEMS
             <span className="h-px w-10 bg-gradient-to-l from-transparent to-accent/70" />
           </div>
         </div>

@@ -4,9 +4,9 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 
 const principles = [
-  { label: "Understand the real constraint", icon: Lightbulb },
-  { label: "Build the right-sized solution", icon: Code2 },
-  { label: "Make it clear and maintainable", icon: Wrench },
+  { label: "Define the problem", icon: Lightbulb },
+  { label: "Build what is needed", icon: Code2 },
+  { label: "Document and hand over", icon: Wrench },
 ];
 
 export function About() {
@@ -15,18 +15,18 @@ export function About() {
       <Container>
         <Reveal className="about-panel grid overflow-hidden rounded-[2rem] border border-line bg-panel/75 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="p-7 sm:p-10 lg:p-14">
-            <SectionHeader eyebrow="ABOUT" title="Code with context." />
+            <SectionHeader eyebrow="ABOUT" title="We build and fix software." />
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
-              Revealer Labs is a digital studio focused on coding and practical problem-solving. We turn unclear, manual or technically demanding challenges into useful digital products and dependable systems.
+              Revealer Labs builds websites, automation tools, mobile apps and interactive projects. We also troubleshoot existing systems and codebases.
             </p>
             <p className="mt-4 max-w-xl text-base leading-8 text-muted sm:text-lg">
-              The work is shaped around the need—not a template—so the result stays focused, understandable and ready to evolve.
+              The scope depends on what needs to be built, fixed or improved. Work is documented so it can be maintained later.
             </p>
           </div>
 
           <div className="relative border-t border-line bg-content/[0.018] p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-14">
             <div aria-hidden="true" className="absolute right-0 top-0 size-48 rounded-full bg-accent/10 blur-3xl" />
-            <p className="relative text-sm font-semibold tracking-[0.16em] text-subtle">HOW WE THINK</p>
+            <p className="relative text-sm font-semibold tracking-[0.16em] text-subtle">HOW WE WORK</p>
             <ul className="relative mt-7 space-y-3">
               {principles.map((principle) => {
                 const Icon = principle.icon;

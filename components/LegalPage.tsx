@@ -19,7 +19,7 @@ export function LegalPage({ eyebrow, title, summary, children }: LegalPageProps)
           <div className="mx-auto max-w-4xl">
             <div className="rounded-[2rem] border border-line bg-panel/75 p-6 shadow-[0_28px_90px_var(--surface-shadow-soft)] sm:p-10 lg:p-14">
               <span className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent-ink">
-                Draft for review — not legally approved
+                Draft for review. Not legally approved.
               </span>
               <p className="mt-8 text-sm font-semibold tracking-[0.18em] text-accent-ink">{eyebrow}</p>
               <h1 className="mt-4 text-balance text-4xl font-semibold tracking-[-0.055em] text-content sm:text-5xl lg:text-6xl">

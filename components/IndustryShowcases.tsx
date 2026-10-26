@@ -9,12 +9,12 @@ export function IndustryShowcases() {
     <section aria-labelledby="industry-showcases-title" className="pb-24 pt-8 sm:pb-32 sm:pt-12">
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold tracking-[0.18em] text-accent-ink">CAPABILITY SHOWCASES</p>
+          <p className="text-sm font-semibold tracking-[0.18em] text-accent-ink">EXAMPLES</p>
           <h2
             id="industry-showcases-title"
             className="mt-4 text-balance text-4xl font-semibold tracking-[-0.05em] text-content sm:text-5xl"
           >
-            Different problems. The right digital shape.
+            Examples of What We Build
           </h2>
         </Reveal>
 

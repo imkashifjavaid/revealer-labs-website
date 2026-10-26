@@ -21,11 +21,11 @@ const themeInitializer = `(() => {
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
   title: {
-    default: "Revealer Labs | Digital Solutions & Development",
+    default: "Revealer Labs | Web, Automation & Technical Support",
     template: "%s | Revealer Labs",
   },
   description:
-    "Web development, AI automation and interactive experiences built around real business needs.",
+    "Web development, automation, mobile apps, game prototypes and remote technical support.",
   alternates: {
     canonical: "/",
   },
@@ -33,16 +33,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Revealer Labs",
-    title: "Revealer Labs | Digital Solutions & Development",
+    title: "Revealer Labs | Web, Automation & Technical Support",
     description:
-      "Web development, AI automation and interactive experiences built around real business needs.",
+      "Web development, automation, mobile apps, game prototypes and remote technical support.",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Revealer Labs | Digital Solutions & Development",
+    title: "Revealer Labs | Web, Automation & Technical Support",
     description:
-      "Web development, AI automation and interactive experiences built around real business needs.",
+      "Web development, automation, mobile apps, game prototypes and remote technical support.",
   },
   icons: {
     icon: "/favicon.svg",

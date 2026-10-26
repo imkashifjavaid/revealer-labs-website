@@ -225,7 +225,7 @@ export function ContactForm() {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             {email ? (
               <a
-                href={`mailto:${email}?subject=Project%20enquiry%20%E2%80%94%20Revealer%20Labs`}
+                href={`mailto:${email}?subject=Project%20enquiry%20for%20Revealer%20Labs`}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-[0_12px_36px_var(--accent-glow)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content motion-reduce:transform-none"
               >
                 <Mail aria-hidden="true" size={17} />
@@ -325,7 +325,7 @@ export function ContactForm() {
           aria-describedby={state.fieldErrors.details ? "contact-details-error" : "contact-details-help"}
           onChange={() => clearFieldError("details")}
           className={`${fieldClass} resize-y`}
-          placeholder="What are you trying to build or improve? Include useful context, constraints or goals."
+          placeholder="What do you want to build, fix or improve? Include the goal and any relevant details."
         />
         {!state.fieldErrors.details ? (
           <p id="contact-details-help" className="mt-2 text-sm leading-6 text-subtle">

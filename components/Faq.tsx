@@ -32,8 +32,8 @@ export function Faq() {
         <Reveal>
           <SectionHeader
             eyebrow="Frequently asked questions"
-            title="Clear Answers Before We Start"
-            description="A practical overview of services, delivery and handover. Project-specific details are agreed together before work begins."
+            title="Common Questions"
+            description="Answers about services, project setup, testing and handover."
           />
         </Reveal>
 

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Revealer Labs — smart digital solutions for real problems";
+export const alt = "Revealer Labs website development, automation and technical support";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -67,13 +67,13 @@ export default function OpenGraphImage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ color: "#a7b8ac", fontSize: 24, letterSpacing: "0.16em" }}>
-              CODE · AUTOMATION · DIGITAL SOLUTIONS
+              WEB · AUTOMATION · TECHNICAL SUPPORT
             </div>
             <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: "-0.045em", marginTop: "22px" }}>
-              Smart solutions.
+              Websites and software.
             </div>
             <div style={{ color: "#4ade80", fontSize: 72, fontWeight: 700, letterSpacing: "-0.045em" }}>
-              Built for real problems.
+              Built for real work.
             </div>
           </div>
         </div>

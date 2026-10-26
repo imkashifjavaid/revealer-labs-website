@@ -58,12 +58,12 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
                 <div className="flex items-center gap-3 text-accent-ink">
                   <ShieldCheck aria-hidden="true" size={21} />
                   <h2 className="text-sm font-bold uppercase tracking-[0.12em]">
-                    {caseStudy.scopeTitle ?? "Honest scope"}
+                    {caseStudy.scopeTitle ?? "Project status"}
                   </h2>
                 </div>
                 <p className="mt-4 text-sm leading-7 text-muted">
                   {caseStudy.scopeCopy ??
-                    "This is an illustrative Revealer Labs concept—not completed client work. Features, production and outcomes are described as proposed."}
+                    "This is an illustrative Revealer Labs concept, not completed client work. Features, production and outcomes are described as proposed."}
                 </p>
               </aside>
             </div>
@@ -101,7 +101,7 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
             <NarrativeBlock number="01" title="The problem" copy={caseStudy.problem} />
             <NarrativeBlock
               number="02"
-              title={caseStudy.solutionTitle ?? "Proposed solution"}
+              title={caseStudy.solutionTitle ?? "Proposed work"}
               copy={caseStudy.proposedSolution}
             />
           </Container>
@@ -111,7 +111,7 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
           <Container>
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">
-                {caseStudy.contributionEyebrow ?? "Concept contribution"}
+                {caseStudy.contributionEyebrow ?? "Project details"}
               </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-content sm:text-5xl">
                 {caseStudy.contributionTitle ?? "What the study includes"}
@@ -126,12 +126,12 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
               />
               <DetailList
                 icon={<Wrench aria-hidden="true" size={22} />}
-                title={caseStudy.toolsTitle ?? "Proposed tools"}
+                title={caseStudy.toolsTitle ?? "Tools"}
                 items={caseStudy.tools}
               />
               <DetailList
                 icon={<CheckCircle2 aria-hidden="true" size={22} />}
-                title={caseStudy.deliverablesTitle ?? "Concept deliverables"}
+                title={caseStudy.deliverablesTitle ?? "Deliverables"}
                 items={caseStudy.deliverables}
               />
             </div>
@@ -142,14 +142,14 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
           <Container>
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">
-                {caseStudy.visualEyebrow ?? "Visual direction"}
+                {caseStudy.visualEyebrow ?? "Project visuals"}
               </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] text-content sm:text-5xl">
-                {caseStudy.visualTitle ?? "A system, not a single screen"}
+                {caseStudy.visualTitle ?? "How the project is presented"}
               </h2>
               <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
                 {caseStudy.visualDescription ??
-                  "These frames explain the intended experience and production direction. They are portfolio concept artifacts, not evidence of a launched product or campaign."}
+                  "These images show how the concept was planned. They do not show a launched product or campaign."}
               </p>
             </div>
 
@@ -183,14 +183,14 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent-ink">Have a related problem?</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-[-0.045em] text-content sm:text-4xl">
-                  Start with the real constraint.
+                  Need something similar?
                 </h2>
               </div>
               <Link
                 href="/#contact"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-bold text-on-accent transition hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content"
               >
-                Discuss a project like this
+                Discuss Your Project
               </Link>
             </div>
           </Container>
@@ -310,7 +310,7 @@ function CaseStudyVisual({ caseStudy }: { caseStudy: CaseStudy }) {
               />
               <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/15 bg-black/55 p-4 text-white backdrop-blur-md">
                 <p className="text-xs font-bold tracking-[0.14em] text-emerald-300">ROUTE READY</p>
-                <p className="mt-2 text-sm text-white/75">Touch-control and mission HUD direction</p>
+                <p className="mt-2 text-sm text-white/75">Touch controls and mission HUD</p>
               </div>
             </div>
           </div>
