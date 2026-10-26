@@ -5,6 +5,7 @@ import { Faq } from "@/components/Faq";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { IndustryShowcases } from "@/components/IndustryShowcases";
+import { ItSupport } from "@/components/ItSupport";
 import { Portfolio } from "@/components/Portfolio";
 import { Services } from "@/components/Services";
 
@@ -15,6 +16,7 @@ export default function Home() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <Services />
+        <ItSupport />
         <Portfolio />
         <IndustryShowcases />
         <About />

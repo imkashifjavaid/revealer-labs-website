@@ -344,5 +344,22 @@ Completed:
 
 Pending:
 
-- Verify the confirmed public email and WhatsApp CTAs after the next Netlify deployment
 - Complete verified Resend delivery values later if the full server-backed form should replace the direct contact CTAs
+
+## Dedicated IT support section — 26 October 2026
+
+Completed:
+
+- Added a dedicated `#it-support` section between Services and Portfolio
+- Added IT Support to desktop, mobile and footer navigation through the shared navigation dataset
+- Added clear remote-support positioning for software troubleshooting, existing codebase fixes, systems and integrations, maintenance and technical guidance
+- Added a direct “Request Remote Support” path to the existing contact section
+- Generated an original black-and-green remote technical workspace visual and optimized it from a 1.78 MB PNG to a 127 KB WebP
+- Preserved the shared light/dark theme, responsive layout, visible focus treatment and reduced-motion behavior
+
+Verification:
+
+- `npm run lint` and `npm run typecheck` pass
+- `npm run build` passes after the required retry; Next.js reports a security upgrade recommendation for the currently installed version
+- Local production HTTP checks returned `200` for the homepage and generated image and confirmed the section and navigation anchors in rendered HTML
+- Headless browser DOM output contains the full IT support section; automated screenshot capture remained blank because the one-time reveal state did not advance in that headless capture environment, so final visual inspection remains recommended in a normal browser

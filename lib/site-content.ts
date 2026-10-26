@@ -1,9 +1,13 @@
 import {
   Bot,
   Braces,
+  Cable,
+  Code2,
   Gamepad2,
   LifeBuoy,
+  Monitor,
   PanelsTopLeft,
+  Wrench,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -17,6 +21,12 @@ export type Service = {
   title: string;
   description: string;
   tags: string[];
+  icon: LucideIcon;
+};
+
+export type ItSupportCapability = {
+  title: string;
+  description: string;
   icon: LucideIcon;
 };
 
@@ -156,6 +166,7 @@ export const publicContact = {
 export const navigationItems: NavigationItem[] = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
+  { label: "IT Support", href: "/#it-support" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" },
@@ -210,6 +221,33 @@ export const services: Service[] = [
       "Hands-on help diagnosing, improving and maintaining the systems your business depends on.",
     tags: ["Troubleshooting", "Maintenance", "Guidance"],
     icon: LifeBuoy,
+  },
+];
+
+export const itSupportCapabilities: ItSupportCapability[] = [
+  {
+    title: "Remote Troubleshooting",
+    description:
+      "Practical help with software errors, configuration problems, slow systems and day-to-day technical blockers.",
+    icon: Monitor,
+  },
+  {
+    title: "Existing Codebase Support",
+    description:
+      "Debugging and targeted improvements for websites, web applications, APIs and deployment workflows.",
+    icon: Code2,
+  },
+  {
+    title: "Systems & Integrations",
+    description:
+      "Support for hosting, domains, business tools, bots and the connections between the services you rely on.",
+    icon: Cable,
+  },
+  {
+    title: "Maintenance & Guidance",
+    description:
+      "Scoped updates, technical cleanup and clear next-step guidance so your systems remain understandable and dependable.",
+    icon: Wrench,
   },
 ];
 

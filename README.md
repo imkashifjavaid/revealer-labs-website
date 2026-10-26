@@ -1,6 +1,6 @@
 # Revealer Labs website
 
-A responsive agency website for Revealer Labs, covering services, verified portfolio work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, a server-backed project-enquiry form and legal-page drafts.
+A responsive agency website for Revealer Labs, covering digital services, remote IT support, verified portfolio work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, project enquiries and legal-page drafts.
 
 ## Local setup
 
@@ -61,12 +61,13 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 
 ## Editing content
 
-- Navigation, services, portfolio projects, case studies, industry showcases and FAQ groups live in `lib/site-content.ts`.
+- Navigation, services, IT support capabilities, portfolio projects, case studies, industry showcases and FAQ groups live in `lib/site-content.ts`.
 - Section copy lives in the corresponding files under `components/`.
 - Semantic light/dark theme tokens, reduced-motion rules and global visual treatments live in `app/globals.css`.
 - Page metadata is defined in `app/layout.tsx`.
 - Older illustrative artwork remains in `public/previews/` for archive purposes but is no longer listed in the public portfolio.
 - Case-study artwork lives in `public/case-studies/`. Replace a study’s `heroPath` and matching portfolio `previewPath` when approved media is ready.
+- The generated IT support visual lives at `public/images/it-support-remote-workspace.webp` and is rendered through `next/image`.
 
 ## Themes, motion and FAQ
 
@@ -100,7 +101,7 @@ Grow Counter uses ten supplied product visuals stored as optimized WebP files un
 
 Ash Blades uses three optimized screenshots under `public/case-studies/ash-blades/` and links to the verified live storefront at `https://ashblades.com/`. The case study describes visible catalog, search, wishlist, cart and purchase controls without claiming sales results, conversion changes, custom payment engineering or an unverified technology stack. The reviewed live site currently exposes `Dashboard > Static Blocks > Topbar` in its top bar and `undefined...` labels in category filters; those storefront issues are documented but are not changed by this portfolio repository.
 
-Real contact delivery remains inactive until the four contact-delivery environment values above are configured. No contact address is displayed publicly.
+Real form delivery remains inactive until the four contact-delivery environment values above are configured. The confirmed public email and WhatsApp options remain available in the contact section meanwhile.
 
 ## Launch readiness
 
