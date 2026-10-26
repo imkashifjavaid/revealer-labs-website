@@ -1,6 +1,6 @@
 # Revealer Labs website
 
-A responsive agency website for Revealer Labs, covering digital services, remote IT support, verified portfolio work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, project enquiries and legal-page drafts.
+A responsive agency website for Revealer Labs, covering digital services, remote IT support, verified portfolio work, detailed case studies, capability showcases, studio positioning, an accessible FAQ, project enquiries and legal information.
 
 ## Local setup
 
@@ -75,7 +75,8 @@ For local response testing only, the built-in test adapter accepts `CONTACT_EMAI
 - The before-interactive initializer in `app/layout.tsx` applies the theme before the page paints.
 - `components/Reveal.tsx` provides one-time, dependency-free section entrances. Reduced-motion preferences disable nonessential movement and smooth scrolling.
 - FAQ group and question content is data-driven. Edit or add typed entries in the `faqGroups` export in `lib/site-content.ts`.
-- The privacy and terms routes are clearly marked drafts. Replace every `[REVIEW REQUIRED: ...]` marker and obtain appropriate legal review before publication.
+- The Privacy Policy reflects the website's current Saudi-based operation, direct Gmail and WhatsApp contact paths, Netlify hosting, optional Resend delivery, 12-month general-enquiry retention and browser theme storage. Review it whenever providers or data practices change.
+- The Terms of Service route remains clearly marked as a draft. Replace every `[REVIEW REQUIRED: ...]` marker and obtain appropriate legal review before treating it as final.
 
 ## Portfolio content
 

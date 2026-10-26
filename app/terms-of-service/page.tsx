@@ -102,7 +102,7 @@ export default function TermsOfServicePage() {
         <p>
           See how enquiry information is handled in the{" "}
           <Link href="/privacy-policy" className="font-medium text-content underline decoration-accent/45 underline-offset-4 hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            Privacy Policy draft
+            Privacy Policy
           </Link>.
         </p>
       </LegalSection>

@@ -5,7 +5,7 @@ Last reviewed: 2026-10-26
 ## Completed checks
 
 - [x] Production lint, TypeScript and Next.js build complete successfully
-- [x] Homepage, Privacy Policy draft, Terms of Service draft and all three case-study routes render successfully
+- [x] Homepage, final Privacy Policy, Terms of Service draft and all three case-study routes render successfully
 - [x] Mobile and desktop layouts checked without horizontal overflow or broken local assets
 - [x] Light/dark theme switching, persistence and readable green brand tokens retained
 - [x] Mobile menu, portfolio filters, project dialog, FAQ accordions and keyboard Escape behavior regression-checked
@@ -14,7 +14,7 @@ Last reviewed: 2026-10-26
 - [x] Page titles, descriptions, canonical URLs and route-specific case-study metadata are configured
 - [x] Open Graph and Twitter sharing images are generated locally
 - [x] `robots.txt` and `sitemap.xml` are generated from the configured production origin
-- [x] Draft legal pages are marked `noindex, nofollow` and are excluded from the sitemap
+- [x] The final Privacy Policy is indexable and included in the sitemap; the Terms of Service draft remains `noindex, nofollow`
 - [x] Accessible 404 and recoverable route-error states are available
 - [x] Baseline response headers cover MIME sniffing, framing, referrer data and unused camera/microphone/location access
 - [x] Local Inter files, Next.js image optimization, static generation and the absence of third-party tracking scripts reduce launch-time overhead
@@ -36,8 +36,9 @@ Never enable the mock adapter in production. A mock acceptance is not evidence t
 
 - [ ] Set the final production origin in `SITE_URL`, rebuild, and confirm canonical, sitemap and social-image URLs use that domain rather than localhost
 - [ ] Configure all four Resend values listed below, then complete a real end-to-end delivery and inbox receipt check
-- [ ] Replace every `[REVIEW REQUIRED: ...]` marker in both legal drafts with the owner-approved business identity, address, effective date, lawful basis, retention policy, rights process, governing law and jurisdiction
-- [ ] Obtain appropriate legal review and remove the draft/not-approved presentation only after approval
+- [x] Replace Privacy Policy review markers with the current operating details, contact method, retention approach and rights process
+- [ ] Replace the remaining `[REVIEW REQUIRED: ...]` markers in the Terms of Service with the owner-approved legal identity, address, governing law and jurisdiction
+- [ ] Obtain appropriate legal review for the Terms of Service before removing its draft/not-approved presentation
 - [ ] Complete the pending Netlify project creation after testing approval, then decide whether the current per-instance in-memory rate limit is sufficient; multi-instance hosting should use a shared persistent limiter
 - [ ] Confirm HTTPS on the final host before enabling a long-lived HSTS policy
 - [ ] Run Lighthouse or an equivalent lab audit against the deployed production URL and begin collecting real Core Web Vitals; local browser checks are not field performance data
@@ -81,7 +82,7 @@ CONTACT_MOCK_DELAY_MS=500
 - [ ] Build with the final environment configuration
 - [ ] Inspect `/robots.txt`, `/sitemap.xml`, page canonicals and social previews on the real domain
 - [ ] Submit one authorized real enquiry and confirm both provider acceptance and inbox receipt
-- [ ] Verify legal copy is approved and no draft markers remain
+- [ ] Complete and review the Terms of Service; the Privacy Policy is published as the current operational policy
 - [ ] Confirm the host serves HTTPS and the expected security headers
 - [ ] Recheck mobile navigation, portfolio dialogs, FAQ, contact form and both themes on the deployed URL
 - [ ] Review browser console, 404 behavior and monitoring/error-reporting expectations

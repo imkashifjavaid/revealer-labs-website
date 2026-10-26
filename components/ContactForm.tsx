@@ -363,7 +363,7 @@ export function ContactForm() {
         <p className="max-w-sm text-sm leading-6 text-subtle">
           By submitting, you acknowledge the{" "}
           <Link href="/privacy-policy" className="font-medium text-content underline decoration-accent/45 underline-offset-4 hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            privacy policy draft
+            Privacy Policy
           </Link>.
         </p>
         <button

@@ -192,6 +192,22 @@ Verification limitations:
 3. Configure the selected production host and verify real email delivery
 4. Complete deployed performance, security and launch-day checks
 
+## Privacy Policy finalisation
+
+Completed:
+
+- Replaced the placeholder Privacy Policy with a publishable operational policy effective 26 October 2026
+- Identified Revealer Labs as the Saudi-based website operator and added the confirmed privacy contact address
+- Documented direct Gmail and WhatsApp contact, Netlify hosting and optional Resend form delivery
+- Defined a 12-month limit for general enquiries that do not become projects, with purpose-based retention for project and legal records
+- Documented data-subject rights, international processing, provider disclosures, incident handling and security safeguards without promising absolute security
+- Removed Privacy Policy draft metadata and `noindex` handling while retaining the Terms of Service draft state
+- Added the Privacy Policy to the generated sitemap and updated contact-form and Terms links
+
+Remaining limitation:
+
+- This is the site owner&apos;s operational policy and is not a substitute for advice from a qualified Saudi privacy lawyer. The Terms of Service still contains review markers and remains a draft.
+
 ## Portfolio addition — Unity driving scene visual showcase
 
 Completed:

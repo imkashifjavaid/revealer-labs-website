@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: new URL("/privacy-policy", siteUrl).toString(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
     ...caseStudies.map((caseStudy) => ({
       url: new URL(`/work/${caseStudy.slug}`, siteUrl).toString(),
       changeFrequency: "monthly" as const,
