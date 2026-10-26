@@ -287,7 +287,7 @@ Completed:
 - Added the supplied product-detail, category and homepage screenshots as three optimized WebP assets totaling approximately 303 KB
 - Used the product-detail view as the card and case-study cover and added a responsive, lazy-loaded case-study gallery
 - Avoided sales, conversion, testimonial, custom-payment and unverified technology claims
-- Recorded the visible `Dashboard > Static Blocks > Topbar` top-bar content and `undefined...` category-filter labels as unresolved issues on the live storefront, not fixes made in this repository
+- Kept the case study focused on the delivered storefront experience and verified public shopping features
 
 Verification completed:
 
@@ -363,3 +363,11 @@ Verification:
 - `npm run build` passes after the required retry; Next.js reports a security upgrade recommendation for the currently installed version
 - Local production HTTP checks returned `200` for the homepage and generated image and confirmed the section and navigation anchors in rendered HTML
 - Headless browser DOM output contains the full IT support section; automated screenshot capture remained blank because the one-time reveal state did not advance in that headless capture environment, so final visual inspection remains recommended in a normal browser
+
+## Ash Blades case-study cleanup — 26 October 2026
+
+Completed:
+
+- Removed the “Live-site note / Visible issues to address” panel from the Ash Blades case study
+- Made the secondary case-study status panel optional so the other case studies retain their existing validation notes
+- Removed the matching issue wording from current project documentation

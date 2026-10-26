@@ -99,7 +99,7 @@ The page content is generated from the typed `caseStudies` dataset in `lib/site-
 
 Grow Counter uses ten supplied product visuals stored as optimized WebP files under `public/portfolio/grow-counter/`. The case study documents version 2.5 as a packaged Android prototype, not a public store release.
 
-Ash Blades uses three optimized screenshots under `public/case-studies/ash-blades/` and links to the verified live storefront at `https://ashblades.com/`. The case study describes visible catalog, search, wishlist, cart and purchase controls without claiming sales results, conversion changes, custom payment engineering or an unverified technology stack. The reviewed live site currently exposes `Dashboard > Static Blocks > Topbar` in its top bar and `undefined...` labels in category filters; those storefront issues are documented but are not changed by this portfolio repository.
+Ash Blades uses three optimized screenshots under `public/case-studies/ash-blades/` and links to the verified live storefront at `https://ashblades.com/`. The case study describes visible catalog, search, wishlist, cart and purchase controls without claiming sales results, conversion changes, custom payment engineering or an unverified technology stack.
 
 Real form delivery remains inactive until the four contact-delivery environment values above are configured. The confirmed public email and WhatsApp options remain available in the contact section meanwhile.
 

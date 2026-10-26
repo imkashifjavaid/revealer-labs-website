@@ -159,18 +159,24 @@ export function CaseStudyPage({ caseStudy }: { caseStudy: CaseStudy }) {
 
         <section className="py-20 sm:py-28">
           <Container>
-            <div className="grid overflow-hidden rounded-[2rem] border border-line-strong bg-panel lg:grid-cols-2">
+            <div
+              className={`grid overflow-hidden rounded-[2rem] border border-line-strong bg-panel ${
+                caseStudy.proposedNext ? "lg:grid-cols-2" : ""
+              }`}
+            >
               <RealityBlock
                 label={caseStudy.realNowLabel ?? "REAL NOW"}
                 title={caseStudy.realNowTitle ?? "What exists"}
                 copy={caseStudy.realNow}
               />
-              <RealityBlock
-                label={caseStudy.proposedNextLabel ?? "PROPOSED NEXT"}
-                title={caseStudy.proposedNextTitle ?? "What remains illustrative"}
-                copy={caseStudy.proposedNext}
-                bordered
-              />
+              {caseStudy.proposedNext ? (
+                <RealityBlock
+                  label={caseStudy.proposedNextLabel ?? "PROPOSED NEXT"}
+                  title={caseStudy.proposedNextTitle ?? "What remains illustrative"}
+                  copy={caseStudy.proposedNext}
+                  bordered
+                />
+              ) : null}
             </div>
 
             <div className="mt-16 flex flex-col items-start justify-between gap-8 rounded-[2rem] border border-accent/25 bg-accent/[0.07] p-7 sm:p-10 lg:flex-row lg:items-center">

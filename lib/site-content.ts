@@ -102,7 +102,7 @@ export type CaseStudy = {
   visualFrames: CaseStudyVisualFrame[];
   galleryImages?: ProjectGalleryImage[];
   realNow: string;
-  proposedNext: string;
+  proposedNext?: string;
   statusLabel?: string;
   scopeTitle?: string;
   scopeCopy?: string;
@@ -469,8 +469,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     realNow:
       "Ash Blades is live at ashblades.com. The public storefront currently exposes category navigation, search, product listings, image galleries, descriptions, prices, wishlist, cart and purchase controls.",
-    proposedNext:
-      "During the current review, the public site displayed ‘Dashboard > Static Blocks > Topbar’ in the top bar and ‘undefined...’ labels in category filters. These are live-storefront content or configuration issues and were not changed by this Revealer Labs portfolio update.",
     statusLabel: "Live Website",
     scopeTitle: "Live project status",
     scopeCopy:
@@ -489,8 +487,6 @@ export const caseStudies: CaseStudy[] = [
     heroCaptionSecondary: "Public storefront screenshot · 19 October 2026",
     realNowLabel: "LIVE NOW",
     realNowTitle: "What is publicly available",
-    proposedNextLabel: "LIVE-SITE NOTE",
-    proposedNextTitle: "Visible issues to address",
     metadataDescription:
       "Ash Blades is a live ecommerce storefront for swords, knives and cosplay collectibles, presented as a Revealer Labs web-development case study.",
     externalUrl: "https://ashblades.com/",
