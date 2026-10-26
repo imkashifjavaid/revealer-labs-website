@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Revealer Labs monogram</title>
+  <desc id="desc">White R and green L on a dark rounded square</desc>
+  <rect width="64" height="64" rx="15" fill="#070B09"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="none" stroke="#4ADE80" stroke-opacity=".34" stroke-width="2"/>
+  <path fill="#F2F7F3" fill-rule="evenodd" d="M10 50V14h15c8.5 0 13.5 4.3 13.5 11.7 0 5-2.6 8.5-7.1 10.2L40.5 50h-9.4l-7.7-12.3h-5.2V50H10Zm8.2-19.5h6.2c4 0 5.9-1.5 5.9-4.7 0-3.1-1.9-4.7-5.9-4.7h-6.2v9.4Z"/>
+  <path fill="#4ADE80" d="M42 14h8.2v28.2H59V50H42V14Z"/>
+</svg>

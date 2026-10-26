@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { Container } from "@/components/Container";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { navigationItems } from "@/lib/site-content";
@@ -24,13 +25,11 @@ export function Header() {
       <Container className="relative flex h-20 items-center justify-between">
         <Link
           href="/#home"
-          className="group inline-flex items-center gap-3 rounded-md text-lg font-semibold tracking-[-0.03em] text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          aria-label="Revealer Labs home"
+          className="group inline-flex rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           onClick={() => setIsOpen(false)}
         >
-          <span className="grid size-8 place-items-center rounded-lg border border-accent/30 bg-accent/10 text-sm font-bold text-accent-ink transition-colors group-hover:border-accent/55">
-            R
-          </span>
-          Revealer Labs
+          <BrandLogo />
         </Link>
 
         <nav aria-label="Primary navigation" className="hidden items-center gap-7 lg:flex">

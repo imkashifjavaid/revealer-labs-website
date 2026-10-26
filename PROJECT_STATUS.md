@@ -388,3 +388,18 @@ Verification:
 - All six public routes returned HTTP 200 from the local production server
 - Rendered homepage checks confirmed the removed phrases are absent, the replacement headings are present and no em dashes remain
 - Next.js 16.4.0 reports a security upgrade recommendation; the dependency was not changed as part of this copy-only update
+
+## RL brand mark — 26 October 2026
+
+Completed:
+
+- Replaced the single-letter header badge with an original `RL` monogram
+- Added a reusable Revealer Labs wordmark with white main text and a green “Labs” accent
+- Applied the updated branding to the header, footer and browser favicon
+- Kept the mark as a local SVG so it stays sharp at every screen size and does not rely on an external asset
+
+Verification:
+
+- `npm run lint`, `npm run typecheck` and `npm run build` pass
+- Local production checks returned HTTP 200 for the homepage, RL mark and favicon
+- Confirmed the same reusable wordmark is rendered in both the header and footer
