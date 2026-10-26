@@ -15,7 +15,7 @@ export function BrandLogo({ compact = false }: BrandLogoProps) {
         aria-hidden="true"
         width={size}
         height={size}
-        className="shrink-0 rounded-[0.65rem] shadow-[0_8px_24px_var(--surface-shadow-soft)]"
+        className="shrink-0 rounded-[0.65rem] border border-line shadow-[0_8px_24px_var(--surface-shadow-soft)]"
       />
       <span className={`whitespace-nowrap font-bold uppercase tracking-[-0.045em] ${compact ? "text-sm" : "text-base sm:text-lg"}`}>
         <span className="text-content">Revealer</span>{" "}

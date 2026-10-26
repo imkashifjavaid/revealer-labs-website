@@ -404,3 +404,4 @@ Verification:
 - Local production checks returned HTTP 200 for the homepage, RL mark and favicon
 - Confirmed the same reusable wordmark is rendered in both the header and footer
 - Refined the monogram after visual review so the `R` and `L` share the same cap height, use matching stroke weight and sit inside a smaller header mark
+- Removed the baked-in green outline and replaced it with the site’s neutral semantic border so the mark sits quietly in dark mode
