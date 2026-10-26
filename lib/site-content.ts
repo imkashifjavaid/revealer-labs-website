@@ -148,6 +148,11 @@ export const contactServiceOptions = [
   "Not sure yet",
 ] as const;
 
+export const publicContact = {
+  email: "revealerlabs@gmail.com",
+  whatsapp: "+966580058130",
+} as const;
+
 export const navigationItems: NavigationItem[] = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },

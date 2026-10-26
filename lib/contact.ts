@@ -1,4 +1,4 @@
-import { contactServiceOptions } from "@/lib/site-content";
+import { contactServiceOptions, publicContact } from "@/lib/site-content";
 
 export type ContactPayload = {
   name: string;
@@ -46,11 +46,13 @@ export function getContactAvailability(
     return { mode: "form" };
   }
 
-  const publicEmail = environment.CONTACT_PUBLIC_EMAIL?.trim();
+  const publicEmail = environment.CONTACT_PUBLIC_EMAIL?.trim() || publicContact.email;
   const email = publicEmail && publicEmail.length <= 254 && emailPattern.test(publicEmail)
     ? publicEmail
     : undefined;
-  const whatsapp = normalizePublicWhatsApp(environment.CONTACT_PUBLIC_WHATSAPP);
+  const whatsapp = normalizePublicWhatsApp(
+    environment.CONTACT_PUBLIC_WHATSAPP?.trim() || publicContact.whatsapp,
+  );
 
   if (email || whatsapp) {
     return { mode: "direct", email, whatsapp };

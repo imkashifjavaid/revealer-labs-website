@@ -54,8 +54,8 @@ CONTACT_EMAIL_PROVIDER=resend
 RESEND_API_KEY=replace-with-a-live-resend-api-key
 CONTACT_TO_EMAIL=replace-with-the-confirmed-recipient
 CONTACT_FROM_EMAIL=Revealer Labs <replace-with-a-sender-on-a-verified-domain>
-CONTACT_PUBLIC_EMAIL=replace-with-a-confirmed-public-address-if-using-the-email-fallback
-CONTACT_PUBLIC_WHATSAPP=+15551234567
+CONTACT_PUBLIC_EMAIL=optional-public-email-override
+CONTACT_PUBLIC_WHATSAPP=optional-public-whatsapp-override-in-E.164-format
 ```
 
 Value requirements:
@@ -65,8 +65,8 @@ Value requirements:
 - `RESEND_API_KEY`: secret live API key from the production Resend account
 - `CONTACT_TO_EMAIL`: confirmed inbox that should receive project enquiries
 - `CONTACT_FROM_EMAIL`: display name and sender address accepted by the verified Resend domain
-- `CONTACT_PUBLIC_EMAIL`: optional public `mailto:` fallback; omit it when the address must not be published
-- `CONTACT_PUBLIC_WHATSAPP`: optional public WhatsApp fallback in E.164 form, including `+` and country code; omit it when the number must not be published
+- `CONTACT_PUBLIC_EMAIL`: optional override for the confirmed public `mailto:` fallback stored in `lib/site-content.ts`
+- `CONTACT_PUBLIC_WHATSAPP`: optional override for the confirmed public WhatsApp fallback stored in `lib/site-content.ts`; use E.164 form with `+` and country code
 
 The following variables are for local testing only and must be absent in production:
 

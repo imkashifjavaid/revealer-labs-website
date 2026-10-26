@@ -229,7 +229,7 @@ export function ContactForm() {
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent shadow-[0_12px_36px_var(--accent-glow)] transition hover:-translate-y-0.5 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content motion-reduce:transform-none"
               >
                 <Mail aria-hidden="true" size={17} />
-                Email Revealer Labs
+                {email}
               </a>
             ) : null}
             {whatsapp ? (
@@ -240,7 +240,7 @@ export function ContactForm() {
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-6 py-3 text-sm font-semibold text-accent-ink transition hover:-translate-y-0.5 hover:border-accent/60 hover:bg-accent/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-content motion-reduce:transform-none"
               >
                 <MessageCircle aria-hidden="true" size={17} />
-                WhatsApp Revealer Labs
+                WhatsApp +{whatsapp}
               </a>
             ) : null}
           </div>

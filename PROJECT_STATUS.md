@@ -337,12 +337,12 @@ Completed:
 
 - Added a runtime contact-availability response to `GET /api/contact`
 - Kept the enquiry form hidden unless the complete Resend delivery configuration is present
-- Added optional `CONTACT_PUBLIC_EMAIL` and `CONTACT_PUBLIC_WHATSAPP` fallbacks that render deliberate direct-contact CTAs only for validated values
+- Added confirmed public email and WhatsApp fallbacks in the central site content, with optional `CONTACT_PUBLIC_EMAIL` and `CONTACT_PUBLIC_WHATSAPP` environment overrides
 - Added an honest non-submitting contact status when neither delivery nor a direct contact path is configured
 - Added a minimal `netlify.toml` build command without secrets or deployment side effects
 - Connected the Netlify project to GitHub, published it at `https://revealerlabs.netlify.app`, and confirmed Netlify detects `main`, `npm run build`, `.next` and the Next.js Runtime
 
 Pending:
 
-- Configure the confirmed public email and WhatsApp values on Netlify and redeploy
+- Verify the confirmed public email and WhatsApp CTAs after the next Netlify deployment
 - Complete verified Resend delivery values later if the full server-backed form should replace the direct contact CTAs
